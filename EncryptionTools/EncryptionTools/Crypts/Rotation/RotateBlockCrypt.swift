@@ -1,5 +1,5 @@
 //
-//  RotateByteBlockCrypt.swift
+//  RotateBlockCrypt.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RotateByteBlockCrypt: Cryptable {
+struct RotateBlockCrypt: Cryptable {
     let blockSize: Int
     let shift: Int
     init(blockSize: Int = 4, shift: Int = 1) {
