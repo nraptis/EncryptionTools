@@ -128,19 +128,19 @@ final class EncryptionToolsTests: XCTestCase {
         print("executed \(loops) tests! rotate encryption!")
     }
     
-    func testRotateByteBlock() {
+    func testRotateBlock() {
         var loops = 0
         for _ in 0..<20 {
             let datas = TestData.all()
             for data in datas {
                 let blockSize = Int.random(in: 1...64)
                 let shift = Int.random(in: -1024...1024)
-                let crypt = RotateByteBlockCrypt(blockSize: blockSize, shift: shift)
-                DataCompare.execute(crypt: crypt, data: data, name: "rotate byte block (size \(blockSize), shift \(shift))")
+                let crypt = RotateBlockCrypt(blockSize: blockSize, shift: shift)
+                DataCompare.execute(crypt: crypt, data: data, name: "rotate block (size \(blockSize), shift \(shift))")
                 loops += 1
             }
         }
-        print("executed \(loops) tests! rotate byte block encryption!")
+        print("executed \(loops) tests! rotate block encryption!")
     }
     
     func testWeaveByteBlock() {
@@ -349,7 +349,7 @@ final class EncryptionToolsTests: XCTestCase {
         for _ in 0..<20 {
             let datas = TestData.all()
             for data in datas {
-                var numberOfRanges = Int.random(in: 1...16)
+                let numberOfRanges = Int.random(in: 1...16)
                 var ranges = [RangeRotationCrypt.RotationElement]()
                 for _ in 0..<numberOfRanges {
                     ranges.append(.init(rangeStart: Int.random(in: 0...255),
@@ -366,5 +366,13 @@ final class EncryptionToolsTests: XCTestCase {
         print("executed \(loops) tests! invert encryption!")
     }
     
-
+    func testExample() {
+        var loops = 0
+        for _ in 0..<20 {
+            let datas = TestData.all()
+            let crypt = ExampleCrypt()
+            loops += DataCompare.execute(crypt: crypt, datas: datas, name: "example")
+        }
+        print("executed \(loops) tests! example encryption!")
+    }
 }

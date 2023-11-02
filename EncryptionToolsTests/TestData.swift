@@ -15,7 +15,7 @@ struct TestData {
         case harsh
     }
     
-    private static let level = Level.normal
+    private static let level = Level.mini
     
     static func all() -> [Data] {
         var result = [Data]()
@@ -178,7 +178,7 @@ struct TestData {
         }
         var result = [Data]()
         for _ in 0..<count {
-            var length = Int.random(in: 0...maximumSize)
+            let length = Int.random(in: 0...maximumSize)
             var bytes = [UInt8]()
             var loop = 0
             while loop < length {
@@ -203,7 +203,7 @@ struct TestData {
         }
         var result = [Data]()
         for _ in 0..<count {
-            var length = Int.random(in: 0...maximumSize)
+            let length = Int.random(in: 0...maximumSize)
             var bytes = [UInt8]()
             var loop = 0
             while loop < length {

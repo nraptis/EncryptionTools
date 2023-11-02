@@ -12,7 +12,7 @@ class VerificationTool: ObservableObject {
     @Published var plainText = "0123456789ABCDEF"
     @Published var encryptedText = ""
     
-    private var testCrypt = WeaveCrypt()
+    private var testCrypt = ExampleCrypt()
     
     func encrypt() {
         do {
