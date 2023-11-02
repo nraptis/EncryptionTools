@@ -14,7 +14,6 @@
 		E83662462AF3269E0043C6BA /* EncryptionToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83662452AF3269E0043C6BA /* EncryptionToolsTests.swift */; };
 		E836625F2AF326E70043C6BA /* Cryptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836625E2AF326E70043C6BA /* Cryptable.swift */; };
 		E83662672AF3325E0043C6BA /* AESCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83662662AF3325E0043C6BA /* AESCrypt.swift */; };
-		E8AD680E2AF347A20086C7BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E8AD680D2AF347A20086C7BA /* README.md */; };
 		E8D3AD1D2AF3385A005B8A04 /* ChaChaPolyCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD1C2AF3385A005B8A04 /* ChaChaPolyCrypt.swift */; };
 		E8D3AD1F2AF33876005B8A04 /* DataMatrixSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD1E2AF33876005B8A04 /* DataMatrixSequence.swift */; };
 		E8D3AD212AF33892005B8A04 /* DataMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD202AF33892005B8A04 /* DataMatrix.swift */; };
@@ -68,7 +67,6 @@
 		E83662452AF3269E0043C6BA /* EncryptionToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionToolsTests.swift; sourceTree = "<group>"; };
 		E836625E2AF326E70043C6BA /* Cryptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptable.swift; sourceTree = "<group>"; };
 		E83662662AF3325E0043C6BA /* AESCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESCrypt.swift; sourceTree = "<group>"; };
-		E8AD680D2AF347A20086C7BA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E8D3AD1C2AF3385A005B8A04 /* ChaChaPolyCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaChaPolyCrypt.swift; sourceTree = "<group>"; };
 		E8D3AD1E2AF33876005B8A04 /* DataMatrixSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMatrixSequence.swift; sourceTree = "<group>"; };
 		E8D3AD202AF33892005B8A04 /* DataMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMatrix.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 		E83662322AF3269D0043C6BA /* EncryptionTools */ = {
 			isa = PBXGroup;
 			children = (
-				E8AD680D2AF347A20086C7BA /* README.md */,
 				E836625E2AF326E70043C6BA /* Cryptable.swift */,
 				E83662602AF328030043C6BA /* Crypts */,
 				E83662682AF3329E0043C6BA /* Helpers */,
@@ -343,7 +340,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8AD680E2AF347A20086C7BA /* README.md in Resources */,
 				E836623B2AF3269E0043C6BA /* Preview Assets.xcassets in Resources */,
 				E83662382AF3269E0043C6BA /* Assets.xcassets in Resources */,
 			);
