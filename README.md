@@ -2,7 +2,7 @@
 
 First of all, AES and ChaChaPoly cyphers should be unbreakable as long as you do not share your key and nonce.<br />
 
-Build your own layer of encryption by combining multiple cyphers.<br />
+Build your own layer of encryption by combining multiple ciphers.<br />
 Decrypt in reverse-order of how you encrypted using the same crypts and parameters.<br />
 
 This is an example of a process:<br />

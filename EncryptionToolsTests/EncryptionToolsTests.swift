@@ -383,15 +383,13 @@ final class EncryptionToolsTests: XCTestCase {
             for data in datas {
                 for _ in 0..<10 {
                     let lowerBound = Int.random(in: 0...255)
-                    var upperBound = lowerBound + Int.random(in: 0...255)
-                    if upperBound > 255 { upperBound = 255 }
+                    let upperBound = Int.random(in: 0...255)
                     let shift = Int.random(in: -1024...1024)
                     let crypt = RangeRotationCrypt(lowerBound: lowerBound,
                                                    upperBound: upperBound,
                                                    shift: shift)
                     DataCompare.execute(crypt: crypt, data: data, name: "range rotation (lowerBound \(lowerBound), upperBound \(upperBound), shift \(shift))")
                     loops += 1
-                    
                 }
             }
         }
@@ -406,5 +404,15 @@ final class EncryptionToolsTests: XCTestCase {
             loops += DataCompare.execute(crypt: crypt, datas: datas, name: "example")
         }
         print("executed \(loops) tests! example encryption!")
+    }
+    
+    func testUnbreakable() {
+        var loops = 0
+        for _ in 0..<10 {
+            let datas = TestData.all()
+            let crypt = UnbreakableCrypt()
+            loops += DataCompare.execute(crypt: crypt, datas: datas, name: "example")
+        }
+        print("executed \(loops) tests! unbreakable encryption!")
     }
 }

@@ -12,7 +12,6 @@ enum RangeRotationCryptError: Error {
 }
 
 struct RangeRotationCrypt: Cryptable {
-    
     let lowerBound: Int
     let upperBound: Int
     let shift: Int
@@ -27,12 +26,10 @@ struct RangeRotationCrypt: Cryptable {
         if dataBytes.count <= 0 {
             return data
         }
-        
         if lowerBound < 0 { throw RangeRotationCryptError.badRange }
         if lowerBound > 255 { throw RangeRotationCryptError.badRange }
         if upperBound > 255 { throw RangeRotationCryptError.badRange }
         if upperBound < 0 { throw RangeRotationCryptError.badRange }
-        
         let rangeSpan = (upperBound - lowerBound) + 1
         for dataIndex in 0..<dataBytes.count {
             var value = Int(dataBytes[dataIndex])
@@ -55,14 +52,11 @@ struct RangeRotationCrypt: Cryptable {
         if dataBytes.count <= 0 {
             return data
         }
-        
         if lowerBound < 0 { throw RangeRotationCryptError.badRange }
         if lowerBound > 255 { throw RangeRotationCryptError.badRange }
         if upperBound > 255 { throw RangeRotationCryptError.badRange }
         if upperBound < 0 { throw RangeRotationCryptError.badRange }
-        
         let rangeSpan = (upperBound - lowerBound) + 1
-        
         for dataIndex in 0..<dataBytes.count {
             var value = Int(dataBytes[dataIndex])
             if value >= lowerBound && value <= upperBound {

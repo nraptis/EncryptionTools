@@ -14,6 +14,7 @@
 		E83662462AF3269E0043C6BA /* EncryptionToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83662452AF3269E0043C6BA /* EncryptionToolsTests.swift */; };
 		E836625F2AF326E70043C6BA /* Cryptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836625E2AF326E70043C6BA /* Cryptable.swift */; };
 		E83662672AF3325E0043C6BA /* AESCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83662662AF3325E0043C6BA /* AESCrypt.swift */; };
+		E8980A642B0722C500E86AAD /* UnbreakableCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8980A632B0722C500E86AAD /* UnbreakableCrypt.swift */; };
 		E8B1819A2AF348FB00911211 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E8B181992AF348FB00911211 /* README.md */; };
 		E8B1819C2AF34C9300911211 /* ExampleCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1819B2AF34C9300911211 /* ExampleCrypt.swift */; };
 		E8B38B5F2B071C1100F4AECF /* InvertMaskCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B38B5E2B071C1100F4AECF /* InvertMaskCrypt.swift */; };
@@ -69,6 +70,7 @@
 		E83662452AF3269E0043C6BA /* EncryptionToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionToolsTests.swift; sourceTree = "<group>"; };
 		E836625E2AF326E70043C6BA /* Cryptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptable.swift; sourceTree = "<group>"; };
 		E83662662AF3325E0043C6BA /* AESCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESCrypt.swift; sourceTree = "<group>"; };
+		E8980A632B0722C500E86AAD /* UnbreakableCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnbreakableCrypt.swift; sourceTree = "<group>"; };
 		E8B181992AF348FB00911211 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E8B1819B2AF34C9300911211 /* ExampleCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCrypt.swift; sourceTree = "<group>"; };
 		E8B38B5E2B071C1100F4AECF /* InvertMaskCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertMaskCrypt.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				E8B181992AF348FB00911211 /* README.md */,
 				E836625E2AF326E70043C6BA /* Cryptable.swift */,
+				E8980A632B0722C500E86AAD /* UnbreakableCrypt.swift */,
 				E8B1819B2AF34C9300911211 /* ExampleCrypt.swift */,
 				E83662602AF328030043C6BA /* Crypts */,
 				E83662682AF3329E0043C6BA /* Helpers */,
@@ -391,6 +394,7 @@
 				E8D3AD4E2AF33B2B005B8A04 /* RotateMaskBlockCrypt.swift in Sources */,
 				E83662362AF3269D0043C6BA /* ContentView.swift in Sources */,
 				E8D3AD442AF33AE9005B8A04 /* SplintBlockCrypt.swift in Sources */,
+				E8980A642B0722C500E86AAD /* UnbreakableCrypt.swift in Sources */,
 				E8D3AD402AF33AC8005B8A04 /* WeaveMaskByteBlockCrypt.swift in Sources */,
 				E8D3AD3A2AF33A9F005B8A04 /* WeaveByteBlockCrypt.swift in Sources */,
 				E83662342AF3269D0043C6BA /* EncryptionToolsApp.swift in Sources */,
