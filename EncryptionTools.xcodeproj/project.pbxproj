@@ -19,8 +19,6 @@
 		E8B38B5F2B071C1100F4AECF /* InvertMaskCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B38B5E2B071C1100F4AECF /* InvertMaskCrypt.swift */; };
 		E8B38B612B071F2700F4AECF /* ReverseMaskCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B38B602B071F2700F4AECF /* ReverseMaskCrypt.swift */; };
 		E8D3AD1D2AF3385A005B8A04 /* ChaChaPolyCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD1C2AF3385A005B8A04 /* ChaChaPolyCrypt.swift */; };
-		E8D3AD1F2AF33876005B8A04 /* DataMatrixSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD1E2AF33876005B8A04 /* DataMatrixSequence.swift */; };
-		E8D3AD212AF33892005B8A04 /* DataMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD202AF33892005B8A04 /* DataMatrix.swift */; };
 		E8D3AD232AF338F9005B8A04 /* BlockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD222AF338F9005B8A04 /* BlockHelper.swift */; };
 		E8D3AD252AF3390F005B8A04 /* Data+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD242AF3390F005B8A04 /* Data+Hex.swift */; };
 		E8D3AD272AF3395B005B8A04 /* String+RandomHexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD262AF3395B005B8A04 /* String+RandomHexString.swift */; };
@@ -76,8 +74,6 @@
 		E8B38B5E2B071C1100F4AECF /* InvertMaskCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertMaskCrypt.swift; sourceTree = "<group>"; };
 		E8B38B602B071F2700F4AECF /* ReverseMaskCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseMaskCrypt.swift; sourceTree = "<group>"; };
 		E8D3AD1C2AF3385A005B8A04 /* ChaChaPolyCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaChaPolyCrypt.swift; sourceTree = "<group>"; };
-		E8D3AD1E2AF33876005B8A04 /* DataMatrixSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMatrixSequence.swift; sourceTree = "<group>"; };
-		E8D3AD202AF33892005B8A04 /* DataMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMatrix.swift; sourceTree = "<group>"; };
 		E8D3AD222AF338F9005B8A04 /* BlockHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockHelper.swift; sourceTree = "<group>"; };
 		E8D3AD242AF3390F005B8A04 /* Data+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Hex.swift"; sourceTree = "<group>"; };
 		E8D3AD262AF3395B005B8A04 /* String+RandomHexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RandomHexString.swift"; sourceTree = "<group>"; };
@@ -252,8 +248,6 @@
 		E83662682AF3329E0043C6BA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E8D3AD1E2AF33876005B8A04 /* DataMatrixSequence.swift */,
-				E8D3AD202AF33892005B8A04 /* DataMatrix.swift */,
 				E8D3AD222AF338F9005B8A04 /* BlockHelper.swift */,
 				E8D3AD242AF3390F005B8A04 /* Data+Hex.swift */,
 				E8D3AD262AF3395B005B8A04 /* String+RandomHexString.swift */,
@@ -377,7 +371,6 @@
 				E8D3AD362AF33A74005B8A04 /* InvertCrypt.swift in Sources */,
 				E8D3AD342AF33A57005B8A04 /* JulianCrypt.swift in Sources */,
 				E8D3AD292AF33974005B8A04 /* String+RandomUTF8String.swift in Sources */,
-				E8D3AD212AF33892005B8A04 /* DataMatrix.swift in Sources */,
 				E8D3AD482AF33B03005B8A04 /* SplintCrypt.swift in Sources */,
 				E8D3AD2F2AF33A11005B8A04 /* ReverseCrypt.swift in Sources */,
 				E8D3AD422AF33AD6005B8A04 /* WeaveMaskCrypt.swift in Sources */,
@@ -404,7 +397,6 @@
 				E8D3AD462AF33AF6005B8A04 /* SplintByteBlockCrypt.swift in Sources */,
 				E8D3AD322AF33A47005B8A04 /* ShuffleCrypt.swift in Sources */,
 				E8B38B612B071F2700F4AECF /* ReverseMaskCrypt.swift in Sources */,
-				E8D3AD1F2AF33876005B8A04 /* DataMatrixSequence.swift in Sources */,
 				E8D3AD2D2AF339E6005B8A04 /* TaylorCrypt.swift in Sources */,
 				E8D3AD232AF338F9005B8A04 /* BlockHelper.swift in Sources */,
 			);
