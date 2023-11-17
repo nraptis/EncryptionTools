@@ -334,6 +334,22 @@ final class EncryptionToolsTests: XCTestCase {
         print("executed \(loops) tests! invert encryption!")
     }
     
+    func testInvertMask() {
+        var loops = 0
+        for _ in 0..<10 {
+            let datas = TestData.all()
+            for data in datas {
+                for _ in 0..<10 {
+                    let mask = UInt8.random(in: 0...255)
+                    let crypt = InvertMaskCrypt(mask: mask)
+                    DataCompare.execute(crypt: crypt, data: data, name: "invert mask (mask \(mask))")
+                    loops += 1
+                }
+            }
+        }
+        print("executed \(loops) tests! invert mask encryption!")
+    }
+    
     func testReverse() {
         var loops = 0
         for _ in 0..<20 {
@@ -344,12 +360,28 @@ final class EncryptionToolsTests: XCTestCase {
         print("executed \(loops) tests! reverse encryption!")
     }
     
-    func testRangeRotation() {
+    func testReverseMask() {
         var loops = 0
-        for _ in 0..<20 {
+        for _ in 0..<10 {
             let datas = TestData.all()
             for data in datas {
-                for _ in 0..<20 {
+                for _ in 0..<10 {
+                    let mask = UInt8.random(in: 0...255)
+                    let crypt = ReverseMaskCrypt(mask: mask)
+                    DataCompare.execute(crypt: crypt, data: data, name: "reverse mask (mask \(mask))")
+                    loops += 1
+                }
+            }
+        }
+        print("executed \(loops) tests! reverse mask encryption!")
+    }
+    
+    func testRangeRotation() {
+        var loops = 0
+        for _ in 0..<10 {
+            let datas = TestData.all()
+            for data in datas {
+                for _ in 0..<10 {
                     let lowerBound = Int.random(in: 0...255)
                     var upperBound = lowerBound + Int.random(in: 0...255)
                     if upperBound > 255 { upperBound = 255 }

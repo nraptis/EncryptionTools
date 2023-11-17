@@ -16,6 +16,8 @@
 		E83662672AF3325E0043C6BA /* AESCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83662662AF3325E0043C6BA /* AESCrypt.swift */; };
 		E8B1819A2AF348FB00911211 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E8B181992AF348FB00911211 /* README.md */; };
 		E8B1819C2AF34C9300911211 /* ExampleCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1819B2AF34C9300911211 /* ExampleCrypt.swift */; };
+		E8B38B5F2B071C1100F4AECF /* InvertMaskCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B38B5E2B071C1100F4AECF /* InvertMaskCrypt.swift */; };
+		E8B38B612B071F2700F4AECF /* ReverseMaskCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B38B602B071F2700F4AECF /* ReverseMaskCrypt.swift */; };
 		E8D3AD1D2AF3385A005B8A04 /* ChaChaPolyCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD1C2AF3385A005B8A04 /* ChaChaPolyCrypt.swift */; };
 		E8D3AD1F2AF33876005B8A04 /* DataMatrixSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD1E2AF33876005B8A04 /* DataMatrixSequence.swift */; };
 		E8D3AD212AF33892005B8A04 /* DataMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD202AF33892005B8A04 /* DataMatrix.swift */; };
@@ -71,6 +73,8 @@
 		E83662662AF3325E0043C6BA /* AESCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESCrypt.swift; sourceTree = "<group>"; };
 		E8B181992AF348FB00911211 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E8B1819B2AF34C9300911211 /* ExampleCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCrypt.swift; sourceTree = "<group>"; };
+		E8B38B5E2B071C1100F4AECF /* InvertMaskCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertMaskCrypt.swift; sourceTree = "<group>"; };
+		E8B38B602B071F2700F4AECF /* ReverseMaskCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseMaskCrypt.swift; sourceTree = "<group>"; };
 		E8D3AD1C2AF3385A005B8A04 /* ChaChaPolyCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaChaPolyCrypt.swift; sourceTree = "<group>"; };
 		E8D3AD1E2AF33876005B8A04 /* DataMatrixSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMatrixSequence.swift; sourceTree = "<group>"; };
 		E8D3AD202AF33892005B8A04 /* DataMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMatrix.swift; sourceTree = "<group>"; };
@@ -185,7 +189,9 @@
 				E83662652AF332490043C6BA /* Splint */,
 				E83662612AF332490043C6BA /* Weave */,
 				E8D3AD2E2AF33A11005B8A04 /* ReverseCrypt.swift */,
+				E8B38B602B071F2700F4AECF /* ReverseMaskCrypt.swift */,
 				E8D3AD352AF33A74005B8A04 /* InvertCrypt.swift */,
+				E8B38B5E2B071C1100F4AECF /* InvertMaskCrypt.swift */,
 				E8D3AD552AF33DC1005B8A04 /* RangeRotationCrypt.swift */,
 			);
 			path = Crypts;
@@ -386,6 +392,7 @@
 				E8D3AD562AF33DC1005B8A04 /* RangeRotationCrypt.swift in Sources */,
 				E8D3AD1D2AF3385A005B8A04 /* ChaChaPolyCrypt.swift in Sources */,
 				E8D3AD582AF33E22005B8A04 /* VerificationTool.swift in Sources */,
+				E8B38B5F2B071C1100F4AECF /* InvertMaskCrypt.swift in Sources */,
 				E8D3AD252AF3390F005B8A04 /* Data+Hex.swift in Sources */,
 				E836625F2AF326E70043C6BA /* Cryptable.swift in Sources */,
 				E8D3AD4E2AF33B2B005B8A04 /* RotateMaskBlockCrypt.swift in Sources */,
@@ -396,6 +403,7 @@
 				E83662342AF3269D0043C6BA /* EncryptionToolsApp.swift in Sources */,
 				E8D3AD462AF33AF6005B8A04 /* SplintByteBlockCrypt.swift in Sources */,
 				E8D3AD322AF33A47005B8A04 /* ShuffleCrypt.swift in Sources */,
+				E8B38B612B071F2700F4AECF /* ReverseMaskCrypt.swift in Sources */,
 				E8D3AD1F2AF33876005B8A04 /* DataMatrixSequence.swift in Sources */,
 				E8D3AD2D2AF339E6005B8A04 /* TaylorCrypt.swift in Sources */,
 				E8D3AD232AF338F9005B8A04 /* BlockHelper.swift in Sources */,
