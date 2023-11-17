@@ -28,14 +28,17 @@ struct ExampleCrypt: Cryptable {
         var result = [Cryptable]()
         result.append(RotateMaskCrypt(mask: 170, shift: 1))
         result.append(WeaveCrypt(count: 1, frontStride: 1, backStride: 0))
-        result.append(RangeRotationCrypt(elements: [.init(rangeStart: 36, rangeEnd: 180, amount: -17)]))
+        result.append(RangeRotationCrypt(lowerBound: 36, upperBound: 180, shift: -17))
+        
         result.append(PasswordCrypt(password: "EnCrYpTiOn"))
         result.append(RotateMaskCrypt(mask: 204, shift: -1))
         result.append(WeaveCrypt(count: 2, frontStride: 0, backStride: 1))
-        result.append(RangeRotationCrypt(elements: [.init(rangeStart: 121, rangeEnd: 255, amount: 14)]))
+        result.append(RangeRotationCrypt(lowerBound: 121, upperBound: 255, shift: 14))
+        
         result.append(RotateMaskBlockCrypt(blockSize: 6, mask: 240, shift: 1))
         result.append(WeaveCrypt(count: 1, frontStride: 1, backStride: 1))
-        result.append(RangeRotationCrypt(elements: [.init(rangeStart: 0, rangeEnd: 111, amount: -20)]))
+        result.append(RangeRotationCrypt(lowerBound: 0, upperBound: 111, shift: -20))
+        
         return result
     }
 }

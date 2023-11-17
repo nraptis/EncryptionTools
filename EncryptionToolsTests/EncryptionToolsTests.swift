@@ -349,21 +349,21 @@ final class EncryptionToolsTests: XCTestCase {
         for _ in 0..<20 {
             let datas = TestData.all()
             for data in datas {
-                let numberOfRanges = Int.random(in: 1...16)
-                var ranges = [RangeRotationCrypt.RotationElement]()
-                for _ in 0..<numberOfRanges {
-                    ranges.append(.init(rangeStart: Int.random(in: 0...255),
-                                        rangeEnd: Int.random(in: 0...255),
-                                        amount: Int.random(in: -1024...1024)))
+                for _ in 0..<20 {
+                    let lowerBound = Int.random(in: 0...255)
+                    var upperBound = lowerBound + Int.random(in: 0...255)
+                    if upperBound > 255 { upperBound = 255 }
+                    let shift = Int.random(in: -1024...1024)
+                    let crypt = RangeRotationCrypt(lowerBound: lowerBound,
+                                                   upperBound: upperBound,
+                                                   shift: shift)
+                    DataCompare.execute(crypt: crypt, data: data, name: "range rotation (lowerBound \(lowerBound), upperBound \(upperBound), shift \(shift))")
+                    loops += 1
+                    
                 }
-                let crypt = RangeRotationCrypt(elements: ranges)
-                DataCompare.execute(crypt: crypt, data: data, name: "splint byte block (\(ranges))")
             }
-            
-            let crypt = ReverseCrypt()
-            loops += DataCompare.execute(crypt: crypt, datas: datas, name: "invert")
         }
-        print("executed \(loops) tests! invert encryption!")
+        print("executed \(loops) tests! range rotation encryption!")
     }
     
     func testExample() {
