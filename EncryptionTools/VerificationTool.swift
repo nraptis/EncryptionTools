@@ -12,12 +12,12 @@ class VerificationTool: ObservableObject {
     @Published var plainText = "0123456789ABCDEFabcdef!!bad_ABC100100204810242048_XL000R[)_76"
     @Published var encryptedText = ""
     
-    private var testCrypt = SplintMaskByteBlockCrypt()
+    private var testCipher = SplintMaskByteBlockCipher()
     
     func encrypt() {
         do {
             guard let data = plainText.data(using: .utf8) else { return }
-            let encryptedData = try testCrypt.encrypt(data: data)
+            let encryptedData = try testCipher.encrypt(data: data)
             if let encryptedString = String(data: encryptedData, encoding: .utf8) {
                 print("encrypted: \(encryptedString)")
             }
@@ -33,7 +33,7 @@ class VerificationTool: ObservableObject {
     func decrypt() {
         do {
             let data = Data(hexString: encryptedText)
-            let decryptedData = try testCrypt.decrypt(data: data)
+            let decryptedData = try testCipher.decrypt(data: data)
             if let decryptedString = String(data: decryptedData, encoding: .utf8) {
                 print("decrypted: \(decryptedString)")
             }

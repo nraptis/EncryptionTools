@@ -1,5 +1,5 @@
 //
-//  WeaveMaskByteBlockCrypt.swift
+//  WeaveMaskByteBlockCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -23,7 +23,7 @@ import Foundation
 //10101111 (AF) 175
 //11110101 (F5) 245
 
-struct WeaveMaskByteBlockCrypt: Cryptable {
+struct WeaveMaskByteBlockCipher: Cipher {
     let blockSize: Int
     let mask: UInt8
     let count: Int

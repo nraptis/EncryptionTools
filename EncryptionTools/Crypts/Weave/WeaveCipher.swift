@@ -1,5 +1,5 @@
 //
-//  WeaveCrypt.swift
+//  WeaveCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeaveCrypt: Cryptable {
+struct WeaveCipher: Cipher {
     let count: Int
     let frontStride: Int
     let backStride: Int

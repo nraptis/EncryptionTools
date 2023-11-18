@@ -1,5 +1,5 @@
 //
-//  WeaveByteBlockCrypt.swift
+//  WeaveByteBlockCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeaveByteBlockCrypt: Cryptable {
+struct WeaveByteBlockCipher: Cipher {
     let blockSize: Int
     let count: Int
     let frontStride: Int

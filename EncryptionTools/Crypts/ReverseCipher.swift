@@ -1,5 +1,5 @@
 //
-//  ReverseCrypt.swift
+//  ReverseCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ReverseCrypt: Cryptable {
+struct ReverseCipher: Cipher {
     func encrypt(data: Data) throws -> Data {
         try process(data: data)
     }

@@ -1,5 +1,5 @@
 //
-//  SplintBlockCrypt.swift
+//  SplintBlockCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SplintBlockCrypt: Cryptable {
+struct SplintBlockCipher: Cipher {
     let blockSize: Int
     init(blockSize: Int = 6) {
         self.blockSize = blockSize

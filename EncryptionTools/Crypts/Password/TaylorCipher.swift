@@ -1,5 +1,5 @@
 //
-//  TaylorCrypt.swift
+//  TaylorCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum TaylorCryptError: Error {
+enum TaylorCipherError: Error {
     case malformedPassword1
     case malformedPassword2
     case emptyPassword1
     case emptyPassword2
 }
 
-struct TaylorCrypt: Cryptable {
+struct TaylorCipher: Cipher {
     let password1: String
     let password2: String
     init(password1: String="apple", password2: String="banana") {
@@ -33,12 +33,12 @@ struct TaylorCrypt: Cryptable {
     private func process(data: Data) throws -> Data {
         var dataBytes = [UInt8](data)
         if dataBytes.count <= 0 { return data }
-        guard let passwordData1 = password1.data(using: .utf8) else { throw TaylorCryptError.malformedPassword1 }
+        guard let passwordData1 = password1.data(using: .utf8) else { throw TaylorCipherError.malformedPassword1 }
         let passwordBytes1 = [UInt8](passwordData1)
-        if passwordBytes1.count <= 0 { throw TaylorCryptError.emptyPassword1 }
-        guard let passwordData2 = password1.data(using: .utf8) else { throw TaylorCryptError.malformedPassword2 }
+        if passwordBytes1.count <= 0 { throw TaylorCipherError.emptyPassword1 }
+        guard let passwordData2 = password1.data(using: .utf8) else { throw TaylorCipherError.malformedPassword2 }
         let passwordBytes2 = [UInt8](passwordData2)
-        if passwordBytes2.count <= 0 { throw TaylorCryptError.emptyPassword2 }
+        if passwordBytes2.count <= 0 { throw TaylorCipherError.emptyPassword2 }
         var dataIndex = 0
         var passwordIndex1 = passwordBytes1.count / 2
         var passwordIndex2 = 0

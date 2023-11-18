@@ -1,5 +1,5 @@
 //
-//  RotateCrypt.swift
+//  RotateCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RotateCrypt: Cryptable {
+struct RotateCipher: Cipher {
     let shift: Int
     init(shift: Int = 1) {
         self.shift = shift

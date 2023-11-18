@@ -1,5 +1,5 @@
 //
-//  ShuffleCrypt.swift
+//  ShuffleCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ShuffleCrypt: Cryptable {
+struct ShuffleCipher: Cipher {
     func encrypt(data: Data) throws -> Data {
         let dataBytes = [UInt8](data)
         if dataBytes.count <= 0 { return data }

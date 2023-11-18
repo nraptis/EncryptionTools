@@ -1,5 +1,5 @@
 //
-//  RangeRotationCrypt.swift
+//  RangeRotationCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum RangeRotationCryptError: Error {
+enum RangeRotationCipherError: Error {
     case badRange
 }
 
-struct RangeRotationCrypt: Cryptable {
+struct RangeRotationCipher: Cipher {
     let lowerBound: Int
     let upperBound: Int
     let shift: Int
@@ -26,10 +26,10 @@ struct RangeRotationCrypt: Cryptable {
         if dataBytes.count <= 0 {
             return data
         }
-        if lowerBound < 0 { throw RangeRotationCryptError.badRange }
-        if lowerBound > 255 { throw RangeRotationCryptError.badRange }
-        if upperBound > 255 { throw RangeRotationCryptError.badRange }
-        if upperBound < 0 { throw RangeRotationCryptError.badRange }
+        if lowerBound < 0 { throw RangeRotationCipherError.badRange }
+        if lowerBound > 255 { throw RangeRotationCipherError.badRange }
+        if upperBound > 255 { throw RangeRotationCipherError.badRange }
+        if upperBound < 0 { throw RangeRotationCipherError.badRange }
         let rangeSpan = (upperBound - lowerBound) + 1
         for dataIndex in 0..<dataBytes.count {
             var value = Int(dataBytes[dataIndex])
@@ -52,10 +52,10 @@ struct RangeRotationCrypt: Cryptable {
         if dataBytes.count <= 0 {
             return data
         }
-        if lowerBound < 0 { throw RangeRotationCryptError.badRange }
-        if lowerBound > 255 { throw RangeRotationCryptError.badRange }
-        if upperBound > 255 { throw RangeRotationCryptError.badRange }
-        if upperBound < 0 { throw RangeRotationCryptError.badRange }
+        if lowerBound < 0 { throw RangeRotationCipherError.badRange }
+        if lowerBound > 255 { throw RangeRotationCipherError.badRange }
+        if upperBound > 255 { throw RangeRotationCipherError.badRange }
+        if upperBound < 0 { throw RangeRotationCipherError.badRange }
         let rangeSpan = (upperBound - lowerBound) + 1
         for dataIndex in 0..<dataBytes.count {
             var value = Int(dataBytes[dataIndex])

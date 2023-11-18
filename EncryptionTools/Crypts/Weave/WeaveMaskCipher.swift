@@ -1,5 +1,5 @@
 //
-//  WeaveMaskBlockCrypt.swift
+//  WeaveMaskCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -23,14 +23,12 @@ import Foundation
 //10101111 (AF) 175
 //11110101 (F5) 245
 
-struct WeaveMaskBlockCrypt: Cryptable {
-    let blockSize: Int
+struct WeaveMaskCipher: Cipher {
     let mask: UInt8
     let count: Int
     let frontStride: Int
     let backStride: Int
-    init(blockSize: Int = 11, mask: UInt8 = 204, count: Int = 1, frontStride: Int = 1, backStride: Int = 0) {
-        self.blockSize = blockSize
+    init(mask: UInt8 = 170, count: Int = 1, frontStride: Int = 1, backStride: Int = 0) {
         self.mask = mask
         self.count = count
         self.frontStride = frontStride
@@ -46,35 +44,25 @@ struct WeaveMaskBlockCrypt: Cryptable {
     }
     
     private func process(data: Data) throws -> Data {
-        var dataBytes = [UInt8](data)
-        var blocks = BlockHelper.dataToBlocks(data: dataBytes, blockSize: blockSize)
-        dataBytes.removeAll()
-        if blocks.count <= 0 { return data }
         var count = count
         if count < 1 { count = 1 }
+        var dataBytes = [UInt8](data)
         var front = 0
-        var back = blocks.count - 1
-        if blocks[blocks.count - 1].count != blockSize {
-            back -= 1
-        }
+        var back = dataBytes.count - 1
         let antimask = ~mask
-        var maskedA = [UInt8](repeating: 0, count: blockSize)
-        var maskedB = [UInt8](repeating: 0, count: blockSize)
         while true {
             var swaps = count
             while swaps > 0 && front < back {
-                for index in 0..<blockSize {
-                    maskedA[index] = blocks[front][index] & mask
-                    blocks[front][index] &= antimask
-                }
-                for index in 0..<blockSize {
-                    maskedB[index] = blocks[back][index] & mask
-                    blocks[back][index] &= antimask
-                }
-                for index in 0..<blockSize {
-                    blocks[front][index] |= maskedB[index]
-                    blocks[back][index] |= maskedA[index]
-                }
+                var byteA = dataBytes[front]
+                var byteB = dataBytes[back]
+                let maskedA = byteA & mask
+                let maskedB = byteB & mask
+                byteA &= antimask
+                byteB &= antimask
+                byteA |= maskedB
+                byteB |= maskedA
+                dataBytes[front] = byteA
+                dataBytes[back] = byteB
                 swaps -= 1
                 front += 1
                 back -= 1
@@ -93,6 +81,6 @@ struct WeaveMaskBlockCrypt: Cryptable {
             }
             if front >= back { break }
         }
-        return Data(BlockHelper.dataFromBlocks(blocks: blocks))
+        return Data(dataBytes)
     }
 }

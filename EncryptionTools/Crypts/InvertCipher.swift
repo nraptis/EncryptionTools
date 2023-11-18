@@ -1,5 +1,5 @@
 //
-//  InvertCrypt.swift
+//  InvertCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct InvertCrypt: Cryptable {
+struct InvertCipher: Cipher {
     func encrypt(data: Data) throws -> Data {
         try process(data: data)
     }

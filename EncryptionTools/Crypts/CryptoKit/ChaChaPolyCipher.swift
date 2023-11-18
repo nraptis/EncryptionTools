@@ -1,5 +1,5 @@
 //
-//  ChaChaPolyCrypt.swift
+//  ChaChaPolyCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/1/23.
@@ -8,7 +8,7 @@
 import Foundation
 import CryptoKit
 
-struct ChaChaPolyCrypt: Cryptable {
+struct ChaChaPolyCipher: Cipher {
     var key: String
     var nonce: String
     init(key: String = "CA8771118EDB1E25A416E7CBCA3E071FEEFEE4838FB1103CFB10D375FB188EE9", nonce: String = "99B88F6F9FBEEE15FFEEE2FA") {

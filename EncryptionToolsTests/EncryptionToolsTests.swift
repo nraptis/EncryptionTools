@@ -25,7 +25,7 @@ final class EncryptionToolsTests: XCTestCase {
         for key in keys {
             for nonce in nonces {
                 let datas = TestData.all()
-                let crypt = AESCrypt(key: key, nonce: nonce)
+                let crypt = AESCipher(key: key, nonce: nonce)
                 loops += DataCompare.execute(crypt: crypt, datas: datas, name: "aes")
             }
         }
@@ -47,7 +47,7 @@ final class EncryptionToolsTests: XCTestCase {
         for key in keys {
             for nonce in nonces {
                 let datas = TestData.all()
-                let crypt = ChaChaPolyCrypt(key: key, nonce: nonce)
+                let crypt = ChaChaPolyCipher(key: key, nonce: nonce)
                 loops += DataCompare.execute(crypt: crypt, datas: datas, name: "aes")
             }
         }
@@ -60,7 +60,7 @@ final class EncryptionToolsTests: XCTestCase {
             let datas = TestData.all()
             for data in datas {
                 let password = String.randomUTF8String(length: Int.random(in: 1...32))
-                let crypt = PasswordCrypt(password: password)
+                let crypt = PasswordCipher(password: password)
                 DataCompare.execute(crypt: crypt, data: data, name: "password (\(password))")
                 loops += 1
             }
@@ -75,7 +75,7 @@ final class EncryptionToolsTests: XCTestCase {
             for data in datas {
                 let password1 = String.randomUTF8String(length: Int.random(in: 1...32))
                 let password2 = String.randomUTF8String(length: Int.random(in: 1...32))
-                let crypt = TaylorCrypt(password1: password1, password2: password2)
+                let crypt = TaylorCipher(password1: password1, password2: password2)
                 DataCompare.execute(crypt: crypt, data: data, name: "taylor (password1 \(password1), password2 \(password2)")
                 loops += 1
             }
@@ -90,7 +90,7 @@ final class EncryptionToolsTests: XCTestCase {
             for data in datas {
                 let mask = UInt8.random(in: 0...255)
                 let shift = Int.random(in: -1024...1024)
-                let crypt = RotateMaskCrypt(mask: mask, shift: shift)
+                let crypt = RotateMaskCipher(mask: mask, shift: shift)
                 DataCompare.execute(crypt: crypt, data: data, name: "rotate mask (mask \(mask), shift \(shift))")
                 loops += 1
             }
@@ -106,7 +106,7 @@ final class EncryptionToolsTests: XCTestCase {
                 let blockSize = Int.random(in: 1...64)
                 let mask = UInt8.random(in: 0...255)
                 let shift = Int.random(in: -1024...1024)
-                let crypt = RotateMaskBlockCrypt(blockSize: blockSize, mask: mask, shift: shift)
+                let crypt = RotateMaskBlockCipher(blockSize: blockSize, mask: mask, shift: shift)
                 DataCompare.execute(crypt: crypt, data: data, name: "rotate mask block (size \(blockSize), mask \(mask), shift \(shift))")
                 loops += 1
             }
@@ -120,7 +120,7 @@ final class EncryptionToolsTests: XCTestCase {
             let datas = TestData.all()
             for data in datas {
                 let shift = Int.random(in: -1024...1024)
-                let crypt = RotateCrypt(shift: shift)
+                let crypt = RotateCipher(shift: shift)
                 DataCompare.execute(crypt: crypt, data: data, name: "rotate (\(shift))")
                 loops += 1
             }
@@ -135,7 +135,7 @@ final class EncryptionToolsTests: XCTestCase {
             for data in datas {
                 let blockSize = Int.random(in: 1...64)
                 let shift = Int.random(in: -1024...1024)
-                let crypt = RotateBlockCrypt(blockSize: blockSize, shift: shift)
+                let crypt = RotateBlockCipher(blockSize: blockSize, shift: shift)
                 DataCompare.execute(crypt: crypt, data: data, name: "rotate block (size \(blockSize), shift \(shift))")
                 loops += 1
             }
@@ -152,7 +152,7 @@ final class EncryptionToolsTests: XCTestCase {
                 let count = Int.random(in: 0...10)
                 let frontStride = Int.random(in: -1...6)
                 let backStride = Int.random(in: -1...6)
-                let crypt = WeaveByteBlockCrypt(blockSize: blockSize,
+                let crypt = WeaveByteBlockCipher(blockSize: blockSize,
                                             count: count,
                                             frontStride: frontStride,
                                             backStride: backStride)
@@ -173,7 +173,7 @@ final class EncryptionToolsTests: XCTestCase {
                 let count = Int.random(in: 0...10)
                 let frontStride = Int.random(in: -1...6)
                 let backStride = Int.random(in: -1...6)
-                let crypt = WeaveMaskByteBlockCrypt(blockSize: blockSize,
+                let crypt = WeaveMaskByteBlockCipher(blockSize: blockSize,
                                                     mask: mask,
                                                     count: count,
                                                     frontStride: frontStride,
@@ -194,7 +194,7 @@ final class EncryptionToolsTests: XCTestCase {
                 let count = Int.random(in: 0...10)
                 let frontStride = Int.random(in: -1...6)
                 let backStride = Int.random(in: -1...6)
-                let crypt = WeaveBlockCrypt(blockSize: blockSize,
+                let crypt = WeaveBlockCipher(blockSize: blockSize,
                                             count: count,
                                             frontStride: frontStride,
                                             backStride: backStride)
@@ -215,7 +215,7 @@ final class EncryptionToolsTests: XCTestCase {
                 let count = Int.random(in: 0...10)
                 let frontStride = Int.random(in: -1...6)
                 let backStride = Int.random(in: -1...6)
-                let crypt = WeaveMaskBlockCrypt(blockSize: blockSize,
+                let crypt = WeaveMaskBlockCipher(blockSize: blockSize,
                                                 mask: mask,
                                                 count: count,
                                                 frontStride: frontStride,
@@ -235,7 +235,7 @@ final class EncryptionToolsTests: XCTestCase {
                 let count = Int.random(in: 0...10)
                 let frontStride = Int.random(in: -1...6)
                 let backStride = Int.random(in: -1...6)
-                let crypt = WeaveCrypt(count: count,
+                let crypt = WeaveCipher(count: count,
                                        frontStride: frontStride,
                                        backStride: backStride)
                 DataCompare.execute(crypt: crypt, data: data, name: "weave (count \(count), front \(frontStride), back \(backStride))")
@@ -254,7 +254,7 @@ final class EncryptionToolsTests: XCTestCase {
                 let count = Int.random(in: 0...10)
                 let frontStride = Int.random(in: -1...6)
                 let backStride = Int.random(in: -1...6)
-                let crypt = WeaveMaskCrypt(mask: mask,
+                let crypt = WeaveMaskCipher(mask: mask,
                                            count: count,
                                            frontStride: frontStride,
                                            backStride: backStride)
@@ -269,7 +269,7 @@ final class EncryptionToolsTests: XCTestCase {
         var loops = 0
         for _ in 0..<20 {
             let datas = TestData.all()
-            let crypt = SplintCrypt()
+            let crypt = SplintCipher()
             loops += DataCompare.execute(crypt: crypt, datas: datas, name: "splint")
         }
         print("executed \(loops) tests! splint encryption!")
@@ -282,7 +282,7 @@ final class EncryptionToolsTests: XCTestCase {
             for data in datas {
                 for _ in 0..<5 {
                     let mask = UInt8.random(in: 0...255)
-                    let crypt = SplintMaskCrypt(mask: mask)
+                    let crypt = SplintMaskCipher(mask: mask)
                     DataCompare.execute(crypt: crypt, data: data, name: "splint mask (\(mask))")
                     loops += 1
                 }
@@ -297,7 +297,7 @@ final class EncryptionToolsTests: XCTestCase {
             let datas = TestData.all()
             for data in datas {
                 let blockSize = Int.random(in: 1...64)
-                let crypt = SplintBlockCrypt(blockSize: blockSize)
+                let crypt = SplintBlockCipher(blockSize: blockSize)
                 DataCompare.execute(crypt: crypt, data: data, name: "splint block (\(blockSize))")
                 loops += 1
             }
@@ -313,7 +313,7 @@ final class EncryptionToolsTests: XCTestCase {
                 for _ in 0..<5 {
                     let mask = UInt8.random(in: 0...255)
                     let blockSize = Int.random(in: 1...64)
-                    let crypt = SplintMaskBlockCrypt(blockSize: blockSize, mask: mask)
+                    let crypt = SplintMaskBlockCipher(blockSize: blockSize, mask: mask)
                     DataCompare.execute(crypt: crypt, data: data, name: "splint mask block (blockSize \(blockSize), mask \(mask))")
                     loops += 1
                 }
@@ -328,7 +328,7 @@ final class EncryptionToolsTests: XCTestCase {
             let datas = TestData.all()
             for data in datas {
                 let blockSize = Int.random(in: 1...64)
-                let crypt = SplintByteBlockCrypt(blockSize: blockSize)
+                let crypt = SplintByteBlockCipher(blockSize: blockSize)
                 DataCompare.execute(crypt: crypt, data: data, name: "splint byte block (\(blockSize))")
                 loops += 1
             }
@@ -344,7 +344,7 @@ final class EncryptionToolsTests: XCTestCase {
                 for _ in 0..<5 {
                     let mask = UInt8.random(in: 0...255)
                     let blockSize = Int.random(in: 1...64)
-                    let crypt = SplintMaskByteBlockCrypt(blockSize: blockSize, mask: mask)
+                    let crypt = SplintMaskByteBlockCipher(blockSize: blockSize, mask: mask)
                     DataCompare.execute(crypt: crypt, data: data, name: "splint mask byte block (blockSize \(blockSize), mask \(mask))")
                     loops += 1
                 }
@@ -357,7 +357,7 @@ final class EncryptionToolsTests: XCTestCase {
         var loops = 0
         for _ in 0..<20 {
             let datas = TestData.all()
-            let crypt = ShuffleCrypt()
+            let crypt = ShuffleCipher()
             loops += DataCompare.execute(crypt: crypt, datas: datas, name: "shuffle")
         }
         print("executed \(loops) tests! shuffle encryption!")
@@ -367,7 +367,7 @@ final class EncryptionToolsTests: XCTestCase {
         var loops = 0
         for _ in 0..<20 {
             let datas = TestData.all()
-            let crypt = JulianCrypt()
+            let crypt = JulianCipher()
             loops += DataCompare.execute(crypt: crypt, datas: datas, name: "julian")
         }
         print("executed \(loops) tests! julian encryption!")
@@ -378,7 +378,7 @@ final class EncryptionToolsTests: XCTestCase {
         var loops = 0
         for _ in 0..<20 {
             let datas = TestData.all()
-            let crypt = InvertCrypt()
+            let crypt = InvertCipher()
             loops += DataCompare.execute(crypt: crypt, datas: datas, name: "invert")
         }
         print("executed \(loops) tests! invert encryption!")
@@ -391,7 +391,7 @@ final class EncryptionToolsTests: XCTestCase {
             for data in datas {
                 for _ in 0..<5 {
                     let mask = UInt8.random(in: 0...255)
-                    let crypt = InvertMaskCrypt(mask: mask)
+                    let crypt = InvertMaskCipher(mask: mask)
                     DataCompare.execute(crypt: crypt, data: data, name: "invert mask (mask \(mask))")
                     loops += 1
                 }
@@ -404,7 +404,7 @@ final class EncryptionToolsTests: XCTestCase {
         var loops = 0
         for _ in 0..<20 {
             let datas = TestData.all()
-            let crypt = ReverseCrypt()
+            let crypt = ReverseCipher()
             loops += DataCompare.execute(crypt: crypt, datas: datas, name: "reverse")
         }
         print("executed \(loops) tests! reverse encryption!")
@@ -417,7 +417,7 @@ final class EncryptionToolsTests: XCTestCase {
             for data in datas {
                 for _ in 0..<5 {
                     let mask = UInt8.random(in: 0...255)
-                    let crypt = ReverseMaskCrypt(mask: mask)
+                    let crypt = ReverseMaskCipher(mask: mask)
                     DataCompare.execute(crypt: crypt, data: data, name: "reverse mask (mask \(mask))")
                     loops += 1
                 }
@@ -435,7 +435,7 @@ final class EncryptionToolsTests: XCTestCase {
                     let lowerBound = Int.random(in: 0...255)
                     let upperBound = Int.random(in: 0...255)
                     let shift = Int.random(in: -1024...1024)
-                    let crypt = RangeRotationCrypt(lowerBound: lowerBound,
+                    let crypt = RangeRotationCipher(lowerBound: lowerBound,
                                                    upperBound: upperBound,
                                                    shift: shift)
                     DataCompare.execute(crypt: crypt, data: data, name: "range rotation (lowerBound \(lowerBound), upperBound \(upperBound), shift \(shift))")
@@ -446,12 +446,11 @@ final class EncryptionToolsTests: XCTestCase {
         print("executed \(loops) tests! range rotation encryption!")
     }
     
-    /*
     func testExample() {
         var loops = 0
-        for _ in 0..<20 {
+        for _ in 0..<5 {
             let datas = TestData.all()
-            let crypt = ExampleCrypt()
+            let crypt = ExampleCipher()
             loops += DataCompare.execute(crypt: crypt, datas: datas, name: "example")
         }
         print("executed \(loops) tests! example encryption!")
@@ -459,12 +458,11 @@ final class EncryptionToolsTests: XCTestCase {
     
     func testUnbreakable() {
         var loops = 0
-        for _ in 0..<10 {
+        for _ in 0..<5 {
             let datas = TestData.all()
-            let crypt = UnbreakableCrypt()
+            let crypt = UnbreakableCipher()
             loops += DataCompare.execute(crypt: crypt, datas: datas, name: "example")
         }
         print("executed \(loops) tests! unbreakable encryption!")
     }
-    */
 }

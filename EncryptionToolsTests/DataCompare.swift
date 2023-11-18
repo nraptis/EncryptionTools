@@ -11,7 +11,7 @@ import XCTest
 
 struct DataCompare {
     
-    static func execute(crypt: some Cryptable, datas: [Data], name: String) -> Int {
+    static func execute(crypt: some Cipher, datas: [Data], name: String) -> Int {
         var loops = 0
         for data in datas {
             execute(crypt: crypt, data: data, name: name)
@@ -20,7 +20,7 @@ struct DataCompare {
         return loops
     }
     
-    static func execute(crypt: some Cryptable, data: Data, name: String) {
+    static func execute(crypt: some Cipher, data: Data, name: String) {
 
         guard let encrypted = try? crypt.encrypt(data: data) else {
             XCTFail("\(name) could not encrypt data (\(data.count) bytes)")

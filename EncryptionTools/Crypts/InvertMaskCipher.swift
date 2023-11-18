@@ -1,5 +1,5 @@
 //
-//  InvertMaskCrypt.swift
+//  InvertMaskCipher.swift
 //  EncryptionTools
 //
 //  Created by Nicky Taylor on 11/16/23.
@@ -23,7 +23,7 @@ import Foundation
 //10101111 (AF) 175
 //11110101 (F5) 245
 
-struct InvertMaskCrypt: Cryptable {
+struct InvertMaskCipher: Cipher {
     let mask: UInt8
     init(mask: UInt8 = 33) {
         self.mask = mask
