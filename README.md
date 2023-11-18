@@ -2,6 +2,8 @@
 
 First of all, AES and ChaChaPoly cyphers should be unbreakable as long as you do not share your key and nonce.<br />
 
+Does AES have a backdoor? Probably not, but adding additional layers of encryption can guarantee the absense of a backdoor. Many of the ciphers in this library spread/mix data across the whole file, which can ensure stronger encryption than any block-based encryption.<br />
+
 Build your own layer of encryption by combining multiple ciphers.<br />
 Decrypt in reverse-order of how you encrypted using the same crypts and parameters.<br />
 
@@ -29,6 +31,8 @@ The more different crypts you combine, the more difficult the encryption will be
 Avoid useless cycles such as Weave, Weave, Weave, Weave, unless they are using different parameters.<br />
 
 Too much is too much... There is not much added benefit to making, for example, 100's of layers of encryption.<br />
+
+Too little is too little... Some of these ciphers such as "ReverseCrypt" are extremely simplistic and included as corollary to their masked counter-part, they should not be used as an individual source of encryption. See "UnbreakableCrypt.swift" for an example of how to build tough level encryption. I would advise you to use your own unique parameters and sequencing.<br />
 
 === Example ===
 

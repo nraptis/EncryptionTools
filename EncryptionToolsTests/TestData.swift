@@ -15,7 +15,7 @@ struct TestData {
         case harsh
     }
     
-    private static let level = Level.mini
+    private static let level = Level.harsh
     
     static func all() -> [Data] {
         var result = [Data]()

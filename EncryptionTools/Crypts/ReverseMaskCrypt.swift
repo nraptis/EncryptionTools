@@ -23,14 +23,14 @@ struct ReverseMaskCrypt: Cryptable {
     }
     
     func encrypt(data: Data) throws -> Data {
-        try proces(data: data)
+        try process(data: data)
     }
     
     func decrypt(data: Data) throws -> Data {
-        try proces(data: data)
+        try process(data: data)
     }
     
-    private func proces(data: Data) throws -> Data {
+    private func process(data: Data) throws -> Data {
         var dataBytes = [UInt8](data)
         var front = 0
         var back = dataBytes.count - 1
