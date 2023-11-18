@@ -16,11 +16,18 @@ import Foundation
 //10011001 (99) (153)
 //10101010 (AA) (170)
 //01010101 (55) (85)
+//10111101 (BD) 189
+//11001111 (CF) 207
+//11110011 (F3) 243
+//11011011 (DB) 219
+//10101111 (AF) 175
+//11110101 (F5) 245
+
 struct RotateMaskBlockCrypt: Cryptable {
     let blockSize: Int
     let mask: UInt8
     let shift: Int
-    init(blockSize: Int = 4, mask: UInt8 = 240, shift: Int = -1) {
+    init(blockSize: Int = 5, mask: UInt8 = 240, shift: Int = -1) {
         self.blockSize = blockSize
         self.mask = mask
         self.shift = shift

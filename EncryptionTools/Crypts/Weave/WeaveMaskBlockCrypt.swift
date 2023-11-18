@@ -16,13 +16,20 @@ import Foundation
 //10011001 (99) (153)
 //10101010 (AA) (170)
 //01010101 (55) (85)
+//10111101 (BD) 189
+//11001111 (CF) 207
+//11110011 (F3) 243
+//11011011 (DB) 219
+//10101111 (AF) 175
+//11110101 (F5) 245
+
 struct WeaveMaskBlockCrypt: Cryptable {
     let blockSize: Int
     let mask: UInt8
     let count: Int
     let frontStride: Int
     let backStride: Int
-    init(blockSize: Int = 8, mask: UInt8 = 204, count: Int = 1, frontStride: Int = 1, backStride: Int = 0) {
+    init(blockSize: Int = 11, mask: UInt8 = 204, count: Int = 1, frontStride: Int = 1, backStride: Int = 0) {
         self.blockSize = blockSize
         self.mask = mask
         self.count = count

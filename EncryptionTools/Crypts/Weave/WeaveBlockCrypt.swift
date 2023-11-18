@@ -12,7 +12,7 @@ struct WeaveBlockCrypt: Cryptable {
     let count: Int
     let frontStride: Int
     let backStride: Int
-    init(blockSize: Int = 8, count: Int = 1, frontStride: Int = 1, backStride: Int = 0) {
+    init(blockSize: Int = 9, count: Int = 1, frontStride: Int = 1, backStride: Int = 0) {
         self.blockSize = blockSize
         self.count = count
         self.frontStride = frontStride

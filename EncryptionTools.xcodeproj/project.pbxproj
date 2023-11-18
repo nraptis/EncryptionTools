@@ -47,6 +47,9 @@
 		E8D3AD542AF33D45005B8A04 /* DataCompare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD532AF33D45005B8A04 /* DataCompare.swift */; };
 		E8D3AD562AF33DC1005B8A04 /* RangeRotationCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD552AF33DC1005B8A04 /* RangeRotationCrypt.swift */; };
 		E8D3AD582AF33E22005B8A04 /* VerificationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3AD572AF33E22005B8A04 /* VerificationTool.swift */; };
+		E8EEBB3B2B08895C00407C61 /* SplintMaskCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EEBB3A2B08895C00407C61 /* SplintMaskCrypt.swift */; };
+		E8EEBB3D2B088EAF00407C61 /* SplintMaskBlockCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EEBB3C2B088EAF00407C61 /* SplintMaskBlockCrypt.swift */; };
+		E8EEBB3F2B088FC000407C61 /* SplintMaskByteBlockCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EEBB3E2B088FC000407C61 /* SplintMaskByteBlockCrypt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		E8D3AD532AF33D45005B8A04 /* DataCompare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCompare.swift; sourceTree = "<group>"; };
 		E8D3AD552AF33DC1005B8A04 /* RangeRotationCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeRotationCrypt.swift; sourceTree = "<group>"; };
 		E8D3AD572AF33E22005B8A04 /* VerificationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationTool.swift; sourceTree = "<group>"; };
+		E8EEBB3A2B08895C00407C61 /* SplintMaskCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplintMaskCrypt.swift; sourceTree = "<group>"; };
+		E8EEBB3C2B088EAF00407C61 /* SplintMaskBlockCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplintMaskBlockCrypt.swift; sourceTree = "<group>"; };
+		E8EEBB3E2B088FC000407C61 /* SplintMaskByteBlockCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplintMaskByteBlockCrypt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,8 +248,11 @@
 			isa = PBXGroup;
 			children = (
 				E8D3AD472AF33B03005B8A04 /* SplintCrypt.swift */,
+				E8EEBB3A2B08895C00407C61 /* SplintMaskCrypt.swift */,
 				E8D3AD432AF33AE9005B8A04 /* SplintBlockCrypt.swift */,
+				E8EEBB3C2B088EAF00407C61 /* SplintMaskBlockCrypt.swift */,
 				E8D3AD452AF33AF6005B8A04 /* SplintByteBlockCrypt.swift */,
+				E8EEBB3E2B088FC000407C61 /* SplintMaskByteBlockCrypt.swift */,
 			);
 			path = Splint;
 			sourceTree = "<group>";
@@ -373,12 +382,14 @@
 				E83662672AF3325E0043C6BA /* AESCrypt.swift in Sources */,
 				E8D3AD362AF33A74005B8A04 /* InvertCrypt.swift in Sources */,
 				E8D3AD342AF33A57005B8A04 /* JulianCrypt.swift in Sources */,
+				E8EEBB3D2B088EAF00407C61 /* SplintMaskBlockCrypt.swift in Sources */,
 				E8D3AD292AF33974005B8A04 /* String+RandomUTF8String.swift in Sources */,
 				E8D3AD482AF33B03005B8A04 /* SplintCrypt.swift in Sources */,
 				E8D3AD2F2AF33A11005B8A04 /* ReverseCrypt.swift in Sources */,
 				E8D3AD422AF33AD6005B8A04 /* WeaveMaskCrypt.swift in Sources */,
 				E8D3AD502AF33B37005B8A04 /* RotateMaskCrypt.swift in Sources */,
 				E8D3AD2B2AF339BE005B8A04 /* PasswordCrypt.swift in Sources */,
+				E8EEBB3F2B088FC000407C61 /* SplintMaskByteBlockCrypt.swift in Sources */,
 				E8D3AD382AF33A92005B8A04 /* WeaveBlockCrypt.swift in Sources */,
 				E8D3AD272AF3395B005B8A04 /* String+RandomHexString.swift in Sources */,
 				E8D3AD3C2AF33AAD005B8A04 /* WeaveCrypt.swift in Sources */,
@@ -397,6 +408,7 @@
 				E8980A642B0722C500E86AAD /* UnbreakableCrypt.swift in Sources */,
 				E8D3AD402AF33AC8005B8A04 /* WeaveMaskByteBlockCrypt.swift in Sources */,
 				E8D3AD3A2AF33A9F005B8A04 /* WeaveByteBlockCrypt.swift in Sources */,
+				E8EEBB3B2B08895C00407C61 /* SplintMaskCrypt.swift in Sources */,
 				E83662342AF3269D0043C6BA /* EncryptionToolsApp.swift in Sources */,
 				E8D3AD462AF33AF6005B8A04 /* SplintByteBlockCrypt.swift in Sources */,
 				E8D3AD322AF33A47005B8A04 /* ShuffleCrypt.swift in Sources */,

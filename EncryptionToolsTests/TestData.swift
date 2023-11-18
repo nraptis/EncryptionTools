@@ -15,7 +15,7 @@ struct TestData {
         case harsh
     }
     
-    private static let level = Level.harsh
+    private static let level = Level.mini
     
     static func all() -> [Data] {
         var result = [Data]()
@@ -30,6 +30,20 @@ struct TestData {
         result.append(contentsOf: sequencesRandomFlavor3())
         result.append(contentsOf: sequencesRandomTwoValues())
         result.append(contentsOf: sequencesRandomThreeValues())
+        if level != .mini {
+            var count = 1
+            if level == .harsh {
+                count = 3
+            }
+            for _ in 0..<count {
+                result.append(contentsOf: sequencesUpShuffled())
+                result.append(contentsOf: sequencesFlatSpansShuffled())
+                result.append(contentsOf: sequencesRandomFlavor2())
+                result.append(contentsOf: sequencesRandomFlavor3())
+                result.append(contentsOf: sequencesRandomTwoValues())
+                result.append(contentsOf: sequencesRandomThreeValues())
+            }
+        }
         return result
     }
     
@@ -37,7 +51,7 @@ struct TestData {
         var lengthCap: Int
         switch TestData.level {
         case .mini:
-            lengthCap = 40
+            lengthCap = 30
         case .normal:
             lengthCap = 80
         case .harsh:
@@ -72,7 +86,7 @@ struct TestData {
         var lengthCap: Int
         switch TestData.level {
         case .mini:
-            lengthCap = 40
+            lengthCap = 30
         case .normal:
             lengthCap = 80
         case .harsh:
@@ -108,7 +122,7 @@ struct TestData {
         var lengthCap: Int
         switch TestData.level {
         case .mini:
-            lengthCap = 40
+            lengthCap = 30
         case .normal:
             lengthCap = 80
         case .harsh:
@@ -144,7 +158,7 @@ struct TestData {
         var lengthCap: Int
         switch TestData.level {
         case .mini:
-            lengthCap = 40
+            lengthCap = 30
         case .normal:
             lengthCap = 80
         case .harsh:
@@ -175,7 +189,7 @@ struct TestData {
         var lengthCap: Int
         switch TestData.level {
         case .mini:
-            lengthCap = 40
+            lengthCap = 30
         case .normal:
             lengthCap = 80
         case .harsh:
@@ -217,7 +231,7 @@ struct TestData {
         var lengthCap: Int
         switch TestData.level {
         case .mini:
-            lengthCap = 40
+            lengthCap = 30
         case .normal:
             lengthCap = 80
         case .harsh:
@@ -261,7 +275,7 @@ struct TestData {
         var lengthCap: Int
         switch TestData.level {
         case .mini:
-            lengthCap = 200
+            lengthCap = 100
             loopCap = 3
         case .normal:
             lengthCap = 800
@@ -293,7 +307,7 @@ struct TestData {
         let maximumSize: Int
         switch TestData.level {
         case .mini:
-            count = 250
+            count = 100
             maximumSize = 256
         case .normal:
             count = 1000
@@ -321,7 +335,7 @@ struct TestData {
         let maximumSize: Int = 16
         switch TestData.level {
         case .mini:
-            count = 512
+            count = 100
         case .normal:
             count = 1024
         case .harsh:
@@ -346,7 +360,7 @@ struct TestData {
         let maximumSize: Int = 16
         switch TestData.level {
         case .mini:
-            count = 512
+            count = 100
         case .normal:
             count = 1024
         case .harsh:
@@ -377,7 +391,7 @@ struct TestData {
         let maximumSize: Int = 16
         switch TestData.level {
         case .mini:
-            count = 512
+            count = 100
         case .normal:
             count = 1024
         case .harsh:

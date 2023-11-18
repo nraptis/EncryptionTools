@@ -16,9 +16,16 @@ import Foundation
 //10011001 (99) (153)
 //10101010 (AA) (170)
 //01010101 (55) (85)
+//10111101 (BD) 189
+//11001111 (CF) 207
+//11110011 (F3) 243
+//11011011 (DB) 219
+//10101111 (AF) 175
+//11110101 (F5) 245
+
 struct ReverseMaskCrypt: Cryptable {
     let mask: UInt8
-    init(mask: UInt8 = 204) {
+    init(mask: UInt8 = 175) {
         self.mask = mask
     }
     

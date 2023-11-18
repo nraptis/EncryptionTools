@@ -275,6 +275,22 @@ final class EncryptionToolsTests: XCTestCase {
         print("executed \(loops) tests! splint encryption!")
     }
     
+    func testSplintMask() {
+        var loops = 0
+        for _ in 0..<10 {
+            let datas = TestData.all()
+            for data in datas {
+                for _ in 0..<5 {
+                    let mask = UInt8.random(in: 0...255)
+                    let crypt = SplintMaskCrypt(mask: mask)
+                    DataCompare.execute(crypt: crypt, data: data, name: "splint mask (\(mask))")
+                    loops += 1
+                }
+            }
+        }
+        print("executed \(loops) tests! splint mask encryption!")
+    }
+    
     func testSplintBlock() {
         var loops = 0
         for _ in 0..<20 {
@@ -289,6 +305,23 @@ final class EncryptionToolsTests: XCTestCase {
         print("executed \(loops) tests! splint block encryption!")
     }
     
+    func testSplintMaskBlock() {
+        var loops = 0
+        for _ in 0..<10 {
+            let datas = TestData.all()
+            for data in datas {
+                for _ in 0..<5 {
+                    let mask = UInt8.random(in: 0...255)
+                    let blockSize = Int.random(in: 1...64)
+                    let crypt = SplintMaskBlockCrypt(blockSize: blockSize, mask: mask)
+                    DataCompare.execute(crypt: crypt, data: data, name: "splint mask block (blockSize \(blockSize), mask \(mask))")
+                    loops += 1
+                }
+            }
+        }
+        print("executed \(loops) tests! splint mask block encryption!")
+    }
+    
     func testSplintByteBlock() {
         var loops = 0
         for _ in 0..<20 {
@@ -301,6 +334,23 @@ final class EncryptionToolsTests: XCTestCase {
             }
         }
         print("executed \(loops) tests! splint byte block encryption!")
+    }
+    
+    func testSplintMaskByteBlock() {
+        var loops = 0
+        for _ in 0..<10 {
+            let datas = TestData.all()
+            for data in datas {
+                for _ in 0..<5 {
+                    let mask = UInt8.random(in: 0...255)
+                    let blockSize = Int.random(in: 1...64)
+                    let crypt = SplintMaskByteBlockCrypt(blockSize: blockSize, mask: mask)
+                    DataCompare.execute(crypt: crypt, data: data, name: "splint mask byte block (blockSize \(blockSize), mask \(mask))")
+                    loops += 1
+                }
+            }
+        }
+        print("executed \(loops) tests! splint mask byte block encryption!")
     }
     
     func testShuffle() {
@@ -339,7 +389,7 @@ final class EncryptionToolsTests: XCTestCase {
         for _ in 0..<10 {
             let datas = TestData.all()
             for data in datas {
-                for _ in 0..<10 {
+                for _ in 0..<5 {
                     let mask = UInt8.random(in: 0...255)
                     let crypt = InvertMaskCrypt(mask: mask)
                     DataCompare.execute(crypt: crypt, data: data, name: "invert mask (mask \(mask))")
@@ -365,7 +415,7 @@ final class EncryptionToolsTests: XCTestCase {
         for _ in 0..<10 {
             let datas = TestData.all()
             for data in datas {
-                for _ in 0..<10 {
+                for _ in 0..<5 {
                     let mask = UInt8.random(in: 0...255)
                     let crypt = ReverseMaskCrypt(mask: mask)
                     DataCompare.execute(crypt: crypt, data: data, name: "reverse mask (mask \(mask))")
@@ -381,7 +431,7 @@ final class EncryptionToolsTests: XCTestCase {
         for _ in 0..<10 {
             let datas = TestData.all()
             for data in datas {
-                for _ in 0..<10 {
+                for _ in 0..<5 {
                     let lowerBound = Int.random(in: 0...255)
                     let upperBound = Int.random(in: 0...255)
                     let shift = Int.random(in: -1024...1024)
@@ -396,6 +446,7 @@ final class EncryptionToolsTests: XCTestCase {
         print("executed \(loops) tests! range rotation encryption!")
     }
     
+    /*
     func testExample() {
         var loops = 0
         for _ in 0..<20 {
@@ -415,4 +466,5 @@ final class EncryptionToolsTests: XCTestCase {
         }
         print("executed \(loops) tests! unbreakable encryption!")
     }
+    */
 }

@@ -9,10 +9,10 @@ import Foundation
 
 class VerificationTool: ObservableObject {
     
-    @Published var plainText = "0123456789ABCDEF"
+    @Published var plainText = "0123456789ABCDEFabcdef!!bad_ABC100100204810242048_XL000R[)_76"
     @Published var encryptedText = ""
     
-    private var testCrypt = UnbreakableCrypt()
+    private var testCrypt = SplintMaskByteBlockCrypt()
     
     func encrypt() {
         do {
