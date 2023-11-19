@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E8096C572B09C8AE00C23E85 /* MarshallCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8096C562B09C8AE00C23E85 /* MarshallCipher.swift */; };
 		E83662342AF3269D0043C6BA /* EncryptionToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83662332AF3269D0043C6BA /* EncryptionToolsApp.swift */; };
 		E83662362AF3269D0043C6BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83662352AF3269D0043C6BA /* ContentView.swift */; };
 		E83662382AF3269E0043C6BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E83662372AF3269E0043C6BA /* Assets.xcassets */; };
 		E836623B2AF3269E0043C6BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E836623A2AF3269E0043C6BA /* Preview Assets.xcassets */; };
 		E83662462AF3269E0043C6BA /* EncryptionToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83662452AF3269E0043C6BA /* EncryptionToolsTests.swift */; };
-		E836625F2AF326E70043C6BA /* Cryptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836625E2AF326E70043C6BA /* Cryptable.swift */; };
+		E836625F2AF326E70043C6BA /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836625E2AF326E70043C6BA /* Cipher.swift */; };
 		E83662672AF3325E0043C6BA /* AESCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83662662AF3325E0043C6BA /* AESCipher.swift */; };
 		E8980A642B0722C500E86AAD /* UnbreakableCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8980A632B0722C500E86AAD /* UnbreakableCipher.swift */; };
 		E8B1819A2AF348FB00911211 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E8B181992AF348FB00911211 /* README.md */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E8096C562B09C8AE00C23E85 /* MarshallCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallCipher.swift; sourceTree = "<group>"; };
 		E83662302AF3269D0043C6BA /* EncryptionTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptionTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E83662332AF3269D0043C6BA /* EncryptionToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionToolsApp.swift; sourceTree = "<group>"; };
 		E83662352AF3269D0043C6BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,7 +73,7 @@
 		E836623C2AF3269E0043C6BA /* EncryptionTools.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EncryptionTools.entitlements; sourceTree = "<group>"; };
 		E83662412AF3269E0043C6BA /* EncryptionToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EncryptionToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E83662452AF3269E0043C6BA /* EncryptionToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionToolsTests.swift; sourceTree = "<group>"; };
-		E836625E2AF326E70043C6BA /* Cryptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptable.swift; sourceTree = "<group>"; };
+		E836625E2AF326E70043C6BA /* Cipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cipher.swift; sourceTree = "<group>"; };
 		E83662662AF3325E0043C6BA /* AESCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESCipher.swift; sourceTree = "<group>"; };
 		E8980A632B0722C500E86AAD /* UnbreakableCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnbreakableCipher.swift; sourceTree = "<group>"; };
 		E8B181992AF348FB00911211 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -151,10 +153,10 @@
 			isa = PBXGroup;
 			children = (
 				E8B181992AF348FB00911211 /* README.md */,
-				E836625E2AF326E70043C6BA /* Cryptable.swift */,
+				E836625E2AF326E70043C6BA /* Cipher.swift */,
 				E8980A632B0722C500E86AAD /* UnbreakableCipher.swift */,
 				E8B1819B2AF34C9300911211 /* ExampleCipher.swift */,
-				E83662602AF328030043C6BA /* Crypts */,
+				E83662602AF328030043C6BA /* Ciphers */,
 				E83662682AF3329E0043C6BA /* Helpers */,
 				E83662352AF3269D0043C6BA /* ContentView.swift */,
 				E83662332AF3269D0043C6BA /* EncryptionToolsApp.swift */,
@@ -184,7 +186,7 @@
 			path = EncryptionToolsTests;
 			sourceTree = "<group>";
 		};
-		E83662602AF328030043C6BA /* Crypts */ = {
+		E83662602AF328030043C6BA /* Ciphers */ = {
 			isa = PBXGroup;
 			children = (
 				E8D3AD302AF33A36005B8A04 /* Shuffle */,
@@ -198,8 +200,9 @@
 				E8D3AD352AF33A74005B8A04 /* InvertCipher.swift */,
 				E8B38B5E2B071C1100F4AECF /* InvertMaskCipher.swift */,
 				E8D3AD552AF33DC1005B8A04 /* RangeRotationCipher.swift */,
+				E8096C562B09C8AE00C23E85 /* MarshallCipher.swift */,
 			);
-			path = Crypts;
+			path = Ciphers;
 			sourceTree = "<group>";
 		};
 		E83662612AF332490043C6BA /* Weave */ = {
@@ -401,11 +404,12 @@
 				E8D3AD582AF33E22005B8A04 /* VerificationTool.swift in Sources */,
 				E8B38B5F2B071C1100F4AECF /* InvertMaskCipher.swift in Sources */,
 				E8D3AD252AF3390F005B8A04 /* Data+Hex.swift in Sources */,
-				E836625F2AF326E70043C6BA /* Cryptable.swift in Sources */,
+				E836625F2AF326E70043C6BA /* Cipher.swift in Sources */,
 				E8D3AD4E2AF33B2B005B8A04 /* RotateMaskBlockCipher.swift in Sources */,
 				E83662362AF3269D0043C6BA /* ContentView.swift in Sources */,
 				E8D3AD442AF33AE9005B8A04 /* SplintBlockCipher.swift in Sources */,
 				E8980A642B0722C500E86AAD /* UnbreakableCipher.swift in Sources */,
+				E8096C572B09C8AE00C23E85 /* MarshallCipher.swift in Sources */,
 				E8D3AD402AF33AC8005B8A04 /* WeaveMaskByteBlockCipher.swift in Sources */,
 				E8D3AD3A2AF33A9F005B8A04 /* WeaveByteBlockCipher.swift in Sources */,
 				E8EEBB3B2B08895C00407C61 /* SplintMaskCipher.swift in Sources */,

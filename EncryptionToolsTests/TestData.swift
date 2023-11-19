@@ -8,54 +8,50 @@
 import Foundation
 
 struct TestData {
-    
-    enum Level {
-        case mini
-        case normal
-        case harsh
-    }
-    
-    private static let level = Level.mini
-    
     static func all() -> [Data] {
         var result = [Data]()
         result.append(contentsOf: sequencesUp())
-        result.append(contentsOf: sequencesUpShuffled())
-        result.append(contentsOf: sequencesDown())
-        result.append(contentsOf: sequencesFlat())
-        result.append(contentsOf: sequencesFlatSpans())
-        result.append(contentsOf: sequencesFlatSpansShuffled())
+        if EncryptionToolsTests.level != .mini {
+            result.append(contentsOf: sequencesUpShuffled())
+            result.append(contentsOf: sequencesDown())
+            result.append(contentsOf: sequencesFlat())
+            result.append(contentsOf: sequencesFlatSpans())
+            result.append(contentsOf: sequencesFlatSpansShuffled())
+        }
         result.append(contentsOf: sequencesRandomFlavor1())
         result.append(contentsOf: sequencesRandomFlavor2())
         result.append(contentsOf: sequencesRandomFlavor3())
         result.append(contentsOf: sequencesRandomTwoValues())
         result.append(contentsOf: sequencesRandomThreeValues())
-        if level != .mini {
-            var count = 1
-            if level == .harsh {
-                count = 3
-            }
-            for _ in 0..<count {
-                result.append(contentsOf: sequencesUpShuffled())
-                result.append(contentsOf: sequencesFlatSpansShuffled())
-                result.append(contentsOf: sequencesRandomFlavor2())
-                result.append(contentsOf: sequencesRandomFlavor3())
-                result.append(contentsOf: sequencesRandomTwoValues())
-                result.append(contentsOf: sequencesRandomThreeValues())
-            }
+        
+        if EncryptionToolsTests.level != .mini {
+            result.append(contentsOf: sequencesUpShuffled())
+            result.append(contentsOf: sequencesFlatSpansShuffled())
+            result.append(contentsOf: sequencesRandomFlavor1())
+            result.append(contentsOf: sequencesRandomFlavor2())
+            result.append(contentsOf: sequencesRandomFlavor3())
+            result.append(contentsOf: sequencesRandomTwoValues())
+            result.append(contentsOf: sequencesRandomThreeValues())
+        }
+        if EncryptionToolsTests.level == .harsh {
+            result.append(contentsOf: sequencesRandomFlavor1())
+            result.append(contentsOf: sequencesRandomFlavor2())
+            result.append(contentsOf: sequencesRandomFlavor3())
+            result.append(contentsOf: sequencesRandomTwoValues())
+            result.append(contentsOf: sequencesRandomThreeValues())
         }
         return result
     }
     
     static func sequencesUp() -> [Data] {
         var lengthCap: Int
-        switch TestData.level {
+        switch EncryptionToolsTests.level {
         case .mini:
-            lengthCap = 30
+            lengthCap = 16
         case .normal:
-            lengthCap = 80
+            lengthCap = 64
         case .harsh:
-            lengthCap = 160
+            lengthCap = 128
         }
         var result = [Data]()
         var length = 1
@@ -84,13 +80,13 @@ struct TestData {
     
     static func sequencesUpShuffled() -> [Data] {
         var lengthCap: Int
-        switch TestData.level {
+        switch EncryptionToolsTests.level {
         case .mini:
-            lengthCap = 30
+            lengthCap = 16
         case .normal:
-            lengthCap = 80
+            lengthCap = 64
         case .harsh:
-            lengthCap = 160
+            lengthCap = 128
         }
         var result = [Data]()
         var length = 1
@@ -102,7 +98,6 @@ struct TestData {
                 var number = startNumber
                 while loop < length {
                     bytes.append(UInt8(number))
-                    
                     loop += 1
                     number += 1
                     if number == 256 {
@@ -120,13 +115,13 @@ struct TestData {
     
     static func sequencesDown() -> [Data] {
         var lengthCap: Int
-        switch TestData.level {
+        switch EncryptionToolsTests.level {
         case .mini:
-            lengthCap = 30
+            lengthCap = 16
         case .normal:
-            lengthCap = 80
+            lengthCap = 64
         case .harsh:
-            lengthCap = 160
+            lengthCap = 128
         }
         var result = [Data]()
         var length = 1
@@ -138,7 +133,6 @@ struct TestData {
                 var number = startNumber
                 while loop < length {
                     bytes.append(UInt8(number))
-                    
                     loop += 1
                     number -= 1
                     if number == -1 {
@@ -154,17 +148,15 @@ struct TestData {
     }
     
     static func sequencesFlat() -> [Data] {
-        
         var lengthCap: Int
-        switch TestData.level {
+        switch EncryptionToolsTests.level {
         case .mini:
-            lengthCap = 30
+            lengthCap = 16
         case .normal:
-            lengthCap = 80
+            lengthCap = 64
         case .harsh:
-            lengthCap = 160
+            lengthCap = 128
         }
-        
         var result = [Data]()
         var length = 1
         while length < lengthCap {
@@ -185,17 +177,15 @@ struct TestData {
     }
     
     static func sequencesFlatSpans() -> [Data] {
-        
         var lengthCap: Int
-        switch TestData.level {
+        switch EncryptionToolsTests.level {
         case .mini:
-            lengthCap = 30
+            lengthCap = 16
         case .normal:
-            lengthCap = 80
+            lengthCap = 64
         case .harsh:
-            lengthCap = 160
+            lengthCap = 128
         }
-        
         var result = [Data]()
         var length = 1
         while length < lengthCap {
@@ -227,17 +217,15 @@ struct TestData {
     }
     
     static func sequencesFlatSpansShuffled() -> [Data] {
-        
         var lengthCap: Int
-        switch TestData.level {
+        switch EncryptionToolsTests.level {
         case .mini:
-            lengthCap = 30
+            lengthCap = 16
         case .normal:
-            lengthCap = 80
+            lengthCap = 64
         case .harsh:
-            lengthCap = 160
+            lengthCap = 128
         }
-        
         var result = [Data]()
         var length = 1
         while length < lengthCap {
@@ -270,21 +258,19 @@ struct TestData {
     }
     
     static func sequencesRandomFlavor1() -> [Data] {
-        
         let loopCap: Int
         var lengthCap: Int
-        switch TestData.level {
+        switch EncryptionToolsTests.level {
         case .mini:
-            lengthCap = 100
-            loopCap = 3
+            lengthCap = 64
+            loopCap = 4
         case .normal:
-            lengthCap = 800
-            loopCap = 6
+            lengthCap = 256
+            loopCap = 8
         case .harsh:
-            lengthCap = 1400
-            loopCap = 13
+            lengthCap = 512
+            loopCap = 16
         }
-        
         var result = [Data]()
         for _ in 0..<loopCap {
             var length = 1
@@ -305,16 +291,16 @@ struct TestData {
     static func sequencesRandomFlavor2() -> [Data] {
         let count: Int
         let maximumSize: Int
-        switch TestData.level {
+        switch EncryptionToolsTests.level {
         case .mini:
-            count = 100
-            maximumSize = 256
+            count = 128
+            maximumSize = 64
         case .normal:
-            count = 1000
+            count = 512
             maximumSize = 512
         case .harsh:
-            count = 2000
-            maximumSize = 2048
+            count = 2048
+            maximumSize = 512
         }
         var result = [Data]()
         for _ in 0..<count {
@@ -332,14 +318,17 @@ struct TestData {
     
     static func sequencesRandomFlavor3() -> [Data] {
         let count: Int
-        let maximumSize: Int = 16
-        switch TestData.level {
+        let maximumSize: Int
+        switch EncryptionToolsTests.level {
         case .mini:
-            count = 100
+            count = 128
+            maximumSize = 64
         case .normal:
-            count = 1024
+            count = 512
+            maximumSize = 512
         case .harsh:
-            count = 4096
+            count = 2048
+            maximumSize = 512
         }
         var result = [Data]()
         for _ in 0..<count {
@@ -357,14 +346,17 @@ struct TestData {
     
     static func sequencesRandomTwoValues() -> [Data] {
         let count: Int
-        let maximumSize: Int = 16
-        switch TestData.level {
+        let maximumSize: Int
+        switch EncryptionToolsTests.level {
         case .mini:
-            count = 100
+            count = 128
+            maximumSize = 64
         case .normal:
-            count = 1024
+            count = 512
+            maximumSize = 512
         case .harsh:
-            count = 4096
+            count = 2048
+            maximumSize = 512
         }
         var result = [Data]()
         for _ in 0..<count {
@@ -388,14 +380,17 @@ struct TestData {
     
     static func sequencesRandomThreeValues() -> [Data] {
         let count: Int
-        let maximumSize: Int = 16
-        switch TestData.level {
+        let maximumSize: Int
+        switch EncryptionToolsTests.level {
         case .mini:
-            count = 100
+            count = 128
+            maximumSize = 64
         case .normal:
-            count = 1024
+            count = 512
+            maximumSize = 512
         case .harsh:
-            count = 4096
+            count = 2048
+            maximumSize = 512
         }
         var result = [Data]()
         for _ in 0..<count {
@@ -420,5 +415,4 @@ struct TestData {
         }
         return result
     }
-    
 }

@@ -10,17 +10,40 @@ import XCTest
 
 final class EncryptionToolsTests: XCTestCase {
 
+    enum Level {
+        case mini
+        case normal
+        case harsh
+    }
+    
+    //
+    // Test Times From 11/19/2023 - 11/20/2023
+    //
+    //Level.mini
+    //Executed 28 tests, with 0 failures (0 unexpected) in 34.454 (34.454) seconds
+    //
+    //Level.normal
+    //Executed 28 tests, with 0 failures (0 unexpected) in 2749.294 (2749.298) seconds
+    //
+    //Level.harsh
+    //Executed 28 tests, with 0 failures (0 unexpected) in 13465.661 (13465.691) seconds
+    //
+    
+    static let level = Level.harsh
+    
     func testAES() {
-        let keys = [String.randomHexString(length: 64),
-                    String.randomHexString(length: 64),
-                    String.randomHexString(length: 64),
-                    String.randomHexString(length: 64),
-                    String.randomHexString(length: 64)]
-        let nonces = [String.randomHexString(length: 24),
-                      String.randomHexString(length: 24),
-                      String.randomHexString(length: 24),
-                      String.randomHexString(length: 24),
-                      String.randomHexString(length: 24)]
+        var keys = [String]()
+        var nonces = [String]()
+        switch Self.level {
+        case .mini:
+            keys.append(String.randomHexString(length: 64))
+            nonces.append(String.randomHexString(length: 24))
+        default:
+            for _ in 0..<3 {
+                keys.append(String.randomHexString(length: 64))
+                nonces.append(String.randomHexString(length: 24))
+            }
+        }
         var loops = 0
         for key in keys {
             for nonce in nonces {
@@ -33,16 +56,18 @@ final class EncryptionToolsTests: XCTestCase {
     }
     
     func testChaChaPoly() {
-        let keys = [String.randomHexString(length: 64),
-                    String.randomHexString(length: 64),
-                    String.randomHexString(length: 64),
-                    String.randomHexString(length: 64),
-                    String.randomHexString(length: 64)]
-        let nonces = [String.randomHexString(length: 24),
-                      String.randomHexString(length: 24),
-                      String.randomHexString(length: 24),
-                      String.randomHexString(length: 24),
-                      String.randomHexString(length: 24)]
+        var keys = [String]()
+        var nonces = [String]()
+        switch Self.level {
+        case .mini:
+            keys.append(String.randomHexString(length: 64))
+            nonces.append(String.randomHexString(length: 24))
+        default:
+            for _ in 0..<3 {
+                keys.append(String.randomHexString(length: 64))
+                nonces.append(String.randomHexString(length: 24))
+            }
+        }
         var loops = 0
         for key in keys {
             for nonce in nonces {
@@ -446,6 +471,25 @@ final class EncryptionToolsTests: XCTestCase {
         print("executed \(loops) tests! range rotation encryption!")
     }
     
+    func testMarshall() {
+        var loops = 0
+        for _ in 0..<10 {
+            let datas = TestData.all()
+            for data in datas {
+                for _ in 0..<5 {
+                    let mask = UInt8.random(in: 0...255)
+                    let crypt = MarshallCipher(mask: mask)
+                    DataCompare.execute(crypt: crypt, data: data, name: "marshall (\(mask))")
+                    loops += 1
+                }
+            }
+        }
+        print("executed \(loops) tests! marshall encryption!")
+    }
+    
+    
+    
+    /*
     func testExample() {
         var loops = 0
         for _ in 0..<5 {
@@ -465,4 +509,5 @@ final class EncryptionToolsTests: XCTestCase {
         }
         print("executed \(loops) tests! unbreakable encryption!")
     }
+    */
 }

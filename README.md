@@ -131,6 +131,15 @@ Breaks the data into blocks, breaks the blocks in half, and interleaves the bloc
 SplintByteBlockCipher<br />
 Breaks the data into blocks, then does SplintCipher on each block of data.<br />
 
+SplintMaskCipher<br />
+Performs SplintCipher only on the bits which match the mask.<br />
+
+SplintMaskBlockCipher<br />
+Performs SplintBlockCipher only on the bits which match the mask.<br />
+
+SplintMaskByteBlockCipher<br />
+Performs SplintByteBlockCipher only on the bits which match the mask.<br />
+
 WeaveCipher<br />
 Swaps elements from the front and back of the data array, skipping some bytes.<br />
 
@@ -161,6 +170,15 @@ A variation of ShuffleCipher with different rules for all smaller sized blocks.<
 ReverseCipher<br />
 Reverses the order of the data... Should only be used alongside other crypts.<br />
 
+ReverseMaskCipher<br />
+Performs ReverseCipher only on the bits which match the mask.<br />
+
 InvertCipher<br />
 Reverses the bits of the data... Should only be used alongside other crypts.<br />
 
+InvertMaskCipher<br />
+Performs InvertCipher only on the bits which match the mask.<br />
+
+MarshallCipher<br />
+Uses a mask to generate a large key from the bits matching the mask.<br />
+The key is applied to the bits which are opposite of the mask.<br />
