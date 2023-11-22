@@ -42,7 +42,6 @@ struct MarshallCipher: Cipher {
         var result = [UInt8](repeating: 0, count: dataBytes.count)
         let noiseTable = noise()
         var twiddle = Int32(5403)
-        
         var noiseIndex: Int32 = 0
         var dataIndex = 0
         while dataIndex < dataBytes.count {
@@ -51,15 +50,12 @@ struct MarshallCipher: Cipher {
             twiddle = (twiddle << 1) * 33 + Int32(masked)
             twiddle ^= Int32(noise)
             twiddle += 17
-            
             result[dataIndex] = UInt8(twiddle & 0xFF)
-            
             noiseIndex += 1
             noiseIndex += Int32(masked) + (Int32(noise) << 1)
             noiseIndex |= twiddle
             noiseIndex = noiseIndex % Int32(noiseTable.count)
             twiddle = twiddle & 0xFFFFFF
-            
             dataIndex += 1
         }
         return result
@@ -77,7 +73,6 @@ struct MarshallCipher: Cipher {
         var dataBytes = [UInt8](data)
         if dataBytes.count <= 0 { return data }
         let antimask = ~mask
-        
         let key = expandKey(dataBytes: dataBytes)
         var dataIndex = 0
         while dataIndex < dataBytes.count {
@@ -89,5 +84,4 @@ struct MarshallCipher: Cipher {
         }
         return Data(dataBytes)
     }
-    
 }

@@ -72,7 +72,7 @@ struct MeganCipher: Cipher {
     private let startNoiseOffset: Int
     init(mask: UInt8 = 224) {
         startMaskOffset = Int(mask)
-        startNoiseOffset = Int(mask)
+        startNoiseOffset = Int(~mask)
     }
     
     private func expandKey(dataBytes: [UInt8]) -> [UInt8] {

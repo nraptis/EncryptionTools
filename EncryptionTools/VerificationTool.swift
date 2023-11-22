@@ -12,7 +12,7 @@ class VerificationTool: ObservableObject {
     @Published var plainText = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+-~0123456789!@#$%^&*[]{}<>()"
     @Published var encryptedText = ""
     
-    private var testCipher = MeganCipher(mask: 0)
+    private var testCipher = UnbreakableCipher()
     
     func encrypt() {
         do {

@@ -37,6 +37,8 @@ struct UnbreakableCipher: Cipher {
         result.append(WeaveMaskBlockCipher( blockSize: 12, mask: 15, count: 2, frontStride: 1, backStride: 0))
         result.append(ReverseMaskCipher(mask: 85))
         result.append(ShuffleCipher())
+        result.append(MarshallCipher(mask: 0x71))
+        
         
         // Chapter 2 - Bloody Knees
         result.append(SplintBlockCipher(blockSize: 11))
@@ -45,6 +47,7 @@ struct UnbreakableCipher: Cipher {
         result.append(ReverseMaskCipher(mask: 51))
         result.append(JulianCipher())
         result.append(RotateMaskCipher(mask: 15, shift: -7))
+        result.append(MistyCipher())
         result.append(WeaveMaskBlockCipher( blockSize: 6, mask: 170, count: 1, frontStride: 0, backStride: 2))
         result.append(InvertMaskCipher(mask: 153))
         result.append(RangeRotationCipher(lowerBound: 24, upperBound: 70, shift: -3))
@@ -52,6 +55,7 @@ struct UnbreakableCipher: Cipher {
         // Chapter 3 - Toxic Vampire
         result.append(WeaveMaskBlockCipher( blockSize: 12, mask: 195, count: 2, frontStride: 1, backStride: 0))
         result.append(InvertMaskCipher(mask: 15))
+        result.append(MeganCipher(mask: 0xE4))
         result.append(WeaveMaskCipher(mask: 153, count: 5, frontStride: 3, backStride: 2))
         result.append(RotateMaskBlockCipher(blockSize: 6, mask: 170, shift: -1))
         result.append(SplintByteBlockCipher(blockSize: 5))

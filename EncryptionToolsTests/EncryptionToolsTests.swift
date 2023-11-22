@@ -16,23 +16,20 @@ final class EncryptionToolsTests: XCTestCase {
         case harsh
     }
     
-    //Executed 30 tests, with 0 failures (0 unexpected) in 37.259 (37.264) seconds
-    //Executed 30 tests, with 0 failures (0 unexpected) in 3118.562 (3118.568) seconds
-    
     //
-    // Test Times From 11/20/2023 - 11/20/2023
+    // Test Times From 11/21/2023 - 11/22/2023
     //
     //Level.mini
-    //Executed 28 tests, with 0 failures (0 unexpected) in 32.921 (32.926) seconds
+    //Executed 30 tests, with 0 failures (0 unexpected) in 37.259 (37.264) seconds
     //
     //Level.normal
-    //Executed 28 tests, with 0 failures (0 unexpected) in 2736.924 (2736.929) seconds
-    //
+    //Executed 30 tests, with 0 failures (0 unexpected) in 3118.562 (3118.568) seconds
     //
     //Level.harsh
+    //Executed 30 tests, with 0 failures (0 unexpected) in 34928.063 (34928.068) seconds
+    //(9.7 Hours)
     //
-    //
-    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //
     // Test Times From 11/19/2023 - 11/20/2023
     //

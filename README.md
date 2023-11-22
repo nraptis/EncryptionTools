@@ -93,7 +93,6 @@ print("final string: \"\(final)\"")
 print("they should be the same...")
 ```
 
-
 Please see EncryptionToolsTests for verification of these crypts.
 
 === The Ciphers ===
@@ -182,3 +181,11 @@ Performs InvertCipher only on the bits which match the mask.<br />
 MarshallCipher<br />
 Uses a mask to generate a large key from the bits matching the mask.<br />
 The key is applied to the bits which are opposite of the mask.<br />
+
+MistyCipher<br />
+Uses internal rotating mask to generate a large key from the bits matching the mask.<br />
+The key is applied to the bits which are opposite of the rotating mask.<br />
+
+MeganCipher<br />
+Uses a mask and internal rotating mask to generate a large key from the bits matching the mask.<br />
+The key is applied to the bits which are opposite of the rotating mask.<br />
