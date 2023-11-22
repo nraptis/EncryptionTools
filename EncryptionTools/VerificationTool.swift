@@ -9,10 +9,10 @@ import Foundation
 
 class VerificationTool: ObservableObject {
     
-    @Published var plainText = "A h00K Thr0ug]-[ Th3 N0se!11 (crYptO gAnG, hEHEHEHE)"
+    @Published var plainText = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+-~0123456789!@#$%^&*[]{}<>()"
     @Published var encryptedText = ""
     
-    private var testCipher = MarshallCipher()
+    private var testCipher = MeganCipher(mask: 0)
     
     func encrypt() {
         do {

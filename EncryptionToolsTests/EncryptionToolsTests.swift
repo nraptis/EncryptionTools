@@ -16,6 +16,23 @@ final class EncryptionToolsTests: XCTestCase {
         case harsh
     }
     
+    //Executed 30 tests, with 0 failures (0 unexpected) in 37.259 (37.264) seconds
+    //Executed 30 tests, with 0 failures (0 unexpected) in 3118.562 (3118.568) seconds
+    
+    //
+    // Test Times From 11/20/2023 - 11/20/2023
+    //
+    //Level.mini
+    //Executed 28 tests, with 0 failures (0 unexpected) in 32.921 (32.926) seconds
+    //
+    //Level.normal
+    //Executed 28 tests, with 0 failures (0 unexpected) in 2736.924 (2736.929) seconds
+    //
+    //
+    //Level.harsh
+    //
+    //
+    
     //
     // Test Times From 11/19/2023 - 11/20/2023
     //
@@ -38,8 +55,13 @@ final class EncryptionToolsTests: XCTestCase {
         case .mini:
             keys.append(String.randomHexString(length: 64))
             nonces.append(String.randomHexString(length: 24))
-        default:
+        case .normal:
             for _ in 0..<3 {
+                keys.append(String.randomHexString(length: 64))
+                nonces.append(String.randomHexString(length: 24))
+            }
+        case .harsh:
+            for _ in 0..<5 {
                 keys.append(String.randomHexString(length: 64))
                 nonces.append(String.randomHexString(length: 24))
             }
@@ -487,6 +509,34 @@ final class EncryptionToolsTests: XCTestCase {
         print("executed \(loops) tests! marshall encryption!")
     }
     
+    func testMisty() {
+        var loops = 0
+        for _ in 0..<20 {
+            let datas = TestData.all()
+            for data in datas {
+                let crypt = MistyCipher()
+                DataCompare.execute(crypt: crypt, data: data, name: "misty")
+                loops += 1
+            }
+        }
+        print("executed \(loops) tests! misty encryption!")
+    }
+    
+    func testMegan() {
+        var loops = 0
+        for _ in 0..<10 {
+            let datas = TestData.all()
+            for data in datas {
+                for _ in 0..<5 {
+                    let mask = UInt8.random(in: 0...255)
+                    let crypt = MeganCipher(mask: mask)
+                    DataCompare.execute(crypt: crypt, data: data, name: "megan (\(mask))")
+                    loops += 1
+                }
+            }
+        }
+        print("executed \(loops) tests! megan encryption!")
+    }
     
     
     /*

@@ -15,6 +15,8 @@
 		E83662462AF3269E0043C6BA /* EncryptionToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83662452AF3269E0043C6BA /* EncryptionToolsTests.swift */; };
 		E836625F2AF326E70043C6BA /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836625E2AF326E70043C6BA /* Cipher.swift */; };
 		E83662672AF3325E0043C6BA /* AESCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83662662AF3325E0043C6BA /* AESCipher.swift */; };
+		E8494CD42B0DAF5500E27AA4 /* MistyCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8494CD32B0DAF5500E27AA4 /* MistyCipher.swift */; };
+		E8494CD62B0DB56900E27AA4 /* MeganCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8494CD52B0DB56900E27AA4 /* MeganCipher.swift */; };
 		E8980A642B0722C500E86AAD /* UnbreakableCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8980A632B0722C500E86AAD /* UnbreakableCipher.swift */; };
 		E8B1819A2AF348FB00911211 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E8B181992AF348FB00911211 /* README.md */; };
 		E8B1819C2AF34C9300911211 /* ExampleCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1819B2AF34C9300911211 /* ExampleCipher.swift */; };
@@ -75,6 +77,8 @@
 		E83662452AF3269E0043C6BA /* EncryptionToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionToolsTests.swift; sourceTree = "<group>"; };
 		E836625E2AF326E70043C6BA /* Cipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cipher.swift; sourceTree = "<group>"; };
 		E83662662AF3325E0043C6BA /* AESCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESCipher.swift; sourceTree = "<group>"; };
+		E8494CD32B0DAF5500E27AA4 /* MistyCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistyCipher.swift; sourceTree = "<group>"; };
+		E8494CD52B0DB56900E27AA4 /* MeganCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeganCipher.swift; sourceTree = "<group>"; };
 		E8980A632B0722C500E86AAD /* UnbreakableCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnbreakableCipher.swift; sourceTree = "<group>"; };
 		E8B181992AF348FB00911211 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E8B1819B2AF34C9300911211 /* ExampleCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCipher.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				E8B38B5E2B071C1100F4AECF /* InvertMaskCipher.swift */,
 				E8D3AD552AF33DC1005B8A04 /* RangeRotationCipher.swift */,
 				E8096C562B09C8AE00C23E85 /* MarshallCipher.swift */,
+				E8494CD32B0DAF5500E27AA4 /* MistyCipher.swift */,
+				E8494CD52B0DB56900E27AA4 /* MeganCipher.swift */,
 			);
 			path = Ciphers;
 			sourceTree = "<group>";
@@ -386,7 +392,9 @@
 				E8D3AD362AF33A74005B8A04 /* InvertCipher.swift in Sources */,
 				E8D3AD342AF33A57005B8A04 /* JulianCipher.swift in Sources */,
 				E8EEBB3D2B088EAF00407C61 /* SplintMaskBlockCipher.swift in Sources */,
+				E8494CD42B0DAF5500E27AA4 /* MistyCipher.swift in Sources */,
 				E8D3AD292AF33974005B8A04 /* String+RandomUTF8String.swift in Sources */,
+				E8494CD62B0DB56900E27AA4 /* MeganCipher.swift in Sources */,
 				E8D3AD482AF33B03005B8A04 /* SplintCipher.swift in Sources */,
 				E8D3AD2F2AF33A11005B8A04 /* ReverseCipher.swift in Sources */,
 				E8D3AD422AF33AD6005B8A04 /* WeaveMaskCipher.swift in Sources */,

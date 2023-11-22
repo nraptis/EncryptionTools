@@ -268,7 +268,7 @@ struct TestData {
             lengthCap = 256
             loopCap = 8
         case .harsh:
-            lengthCap = 512
+            lengthCap = 1024
             loopCap = 16
         }
         var result = [Data]()
@@ -299,8 +299,8 @@ struct TestData {
             count = 512
             maximumSize = 512
         case .harsh:
-            count = 2048
-            maximumSize = 512
+            count = 4096
+            maximumSize = 1024
         }
         var result = [Data]()
         for _ in 0..<count {
@@ -327,8 +327,8 @@ struct TestData {
             count = 512
             maximumSize = 512
         case .harsh:
-            count = 2048
-            maximumSize = 512
+            count = 4096
+            maximumSize = 1024
         }
         var result = [Data]()
         for _ in 0..<count {
@@ -355,8 +355,8 @@ struct TestData {
             count = 512
             maximumSize = 512
         case .harsh:
-            count = 2048
-            maximumSize = 512
+            count = 4096
+            maximumSize = 1024
         }
         var result = [Data]()
         for _ in 0..<count {
@@ -389,8 +389,8 @@ struct TestData {
             count = 512
             maximumSize = 512
         case .harsh:
-            count = 2048
-            maximumSize = 512
+            count = 4096
+            maximumSize = 1024
         }
         var result = [Data]()
         for _ in 0..<count {

@@ -98,10 +98,10 @@ Please see EncryptionToolsTests for verification of these crypts.
 
 === The Ciphers ===
 
-AESCipher (CipheroKit)<br />
+AESCipher (CryptoKit)<br />
 A container for Advanced Encryption Standard (AES) ciphers.<br />
 
-ChaChaPolyCipher (CipheroKit)<br />
+ChaChaPolyCipher (CryptoKit)<br />
 An implementation of the ChaCha20-Poly1305 cipher.<br />
 
 PasswordCipher<br />
