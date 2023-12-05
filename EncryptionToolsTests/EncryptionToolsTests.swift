@@ -17,6 +17,21 @@ final class EncryptionToolsTests: XCTestCase {
     }
     
     //
+    // Test Times From 12/04/2023 - 12/05/2023 (Some ciphers modified since 11/22/2023)
+    //
+    //Level.mini
+    //Executed 30 tests, with 0 failures (0 unexpected) in 37.922 (37.927) seconds
+    //
+    //Level.normal
+    //Executed 30 tests, with 0 failures (0 unexpected) in 3067.721 (3067.726) seconds
+    //(51 minutes)
+    //
+    //Level.harsh
+    //Executed 30 tests, with 0 failures (0 unexpected) in 35104.423 (35104.427) seconds
+    //(9.75 hours)
+    //
+    
+    //
     // Test Times From 11/21/2023 - 11/22/2023
     //
     //Level.mini
@@ -28,19 +43,6 @@ final class EncryptionToolsTests: XCTestCase {
     //Level.harsh
     //Executed 30 tests, with 0 failures (0 unexpected) in 34928.063 (34928.068) seconds
     //(9.7 Hours)
-    //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Test Times From 11/19/2023 - 11/20/2023
-    //
-    //Level.mini
-    //Executed 28 tests, with 0 failures (0 unexpected) in 34.454 (34.454) seconds
-    //
-    //Level.normal
-    //Executed 28 tests, with 0 failures (0 unexpected) in 2749.294 (2749.298) seconds
-    //
-    //Level.harsh
-    //Executed 28 tests, with 0 failures (0 unexpected) in 13465.661 (13465.691) seconds
     //
     
     static let level = Level.harsh
@@ -534,27 +536,4 @@ final class EncryptionToolsTests: XCTestCase {
         }
         print("executed \(loops) tests! megan encryption!")
     }
-    
-    
-    /*
-    func testExample() {
-        var loops = 0
-        for _ in 0..<5 {
-            let datas = TestData.all()
-            let crypt = ExampleCipher()
-            loops += DataCompare.execute(crypt: crypt, datas: datas, name: "example")
-        }
-        print("executed \(loops) tests! example encryption!")
-    }
-    
-    func testUnbreakable() {
-        var loops = 0
-        for _ in 0..<5 {
-            let datas = TestData.all()
-            let crypt = UnbreakableCipher()
-            loops += DataCompare.execute(crypt: crypt, datas: datas, name: "example")
-        }
-        print("executed \(loops) tests! unbreakable encryption!")
-    }
-    */
 }

@@ -39,7 +39,6 @@ struct UnbreakableCipher: Cipher {
         result.append(ShuffleCipher())
         result.append(MarshallCipher(mask: 0x71))
         
-        
         // Chapter 2 - Bloody Knees
         result.append(SplintBlockCipher(blockSize: 11))
         result.append(WeaveMaskCipher(mask: 195, count: 2, frontStride: 0, backStride: 1))

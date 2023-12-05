@@ -6,23 +6,7 @@
 //
 
 import Foundation
-
-//11110000 (F0) (240)
-//00001111 (0F) (15)
-//11000011 (C3) (195)
-//00111100 (3C) (60)
-//11001100 (CC) (204)
-//00110011 (33) (51)
-//10011001 (99) (153)
-//10101010 (AA) (170)
-//01010101 (55) (85)
-//10111101 (BD) 189
-//11001111 (CF) 207
-//11110011 (F3) 243
-//11011011 (DB) 219
-//10101111 (AF) 175
-//11110101 (F5) 245
-    
+ 
 struct MarshallCipher: Cipher {
     
     let mask: UInt8
@@ -30,7 +14,7 @@ struct MarshallCipher: Cipher {
         self.mask = mask
     }
     
-    private func noise() -> [UInt8] {
+    private func noiseTable() -> [UInt8] {
         [0xF0, 0xF5, 0xF3,
          0x0F, 0xBD, 0xC3,
          0xAF, 0x55, 0xDB,
@@ -40,7 +24,7 @@ struct MarshallCipher: Cipher {
     
     private func expandKey(dataBytes: [UInt8]) -> [UInt8] {
         var result = [UInt8](repeating: 0, count: dataBytes.count)
-        let noiseTable = noise()
+        let noiseTable = noiseTable()
         var twiddle = Int32(5403)
         var noiseIndex: Int32 = 0
         var dataIndex = 0
@@ -53,7 +37,6 @@ struct MarshallCipher: Cipher {
             result[dataIndex] = UInt8(twiddle & 0xFF)
             noiseIndex += 1
             noiseIndex += Int32(masked) + (Int32(noise) << 1)
-            noiseIndex |= twiddle
             noiseIndex = noiseIndex % Int32(noiseTable.count)
             twiddle = twiddle & 0xFFFFFF
             dataIndex += 1
